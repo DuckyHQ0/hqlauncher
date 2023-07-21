@@ -1,0 +1,32 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.0.0-rc.1",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@types/node": "^18.16.19",
+    "electron": "^25.3.0",
+    "electron-builder": "^24.4.0",
+    "nuxt": "^3.6.3",
+    "nuxt-electron": "^0.6.0",
+    "nuxt-icons": "^3.2.1",
+    "vite-plugin-electron": "^0.12.0",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.14",
+    "electron-icon-builder": "^2.0.1",
+    "gmll": "^3.0.4",
+    "minecraft-launcher-core": "^3.17.1",
+    "msmc": "^4.1.0"
+  }
+}
