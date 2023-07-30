@@ -15,4 +15,5 @@ export default defineNuxtConfig({
 		],
 	},
 	ssr: false,
+	builder: 'vite',
 });

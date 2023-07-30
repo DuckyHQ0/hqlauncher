@@ -1,0 +1,21 @@
+{
+	"_ver": "22.01",
+	"data": {
+		"index": {
+			"size": 111,
+			"sha1": "6bd7704f12fe0bd0dc1379cc5360c0bec7511ffd"
+		},
+		"7zxa.dll": {
+			"size": 389120,
+			"sha1": "2ee7ce20c3629f029e6679c3a11faa7b2d8f5d84"
+		},
+		"7za.exe": {
+			"size": 1269760,
+			"sha1": "6030bc29379cfc218fe0eba42bc072981f21ef1e"
+		},
+		"7za.dll": {
+			"size": 389120,
+			"sha1": "2ee7ce20c3629f029e6679c3a11faa7b2d8f5d84"
+		}
+	}
+}

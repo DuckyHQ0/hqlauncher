@@ -31,28 +31,6 @@
 				/>
 			</NuxtLink>
 			<NuxtLink
-				to="/settings"
-				class="hover:scale-95 transition-all duration-200 active:scale-90"
-			>
-				<nuxt-icon
-					name="settings"
-					:class="[
-						{
-							'text-[25px]': instances,
-						},
-						{
-							'text-[25px] selected': settings,
-						},
-						{
-							'text-[25px]': accounts,
-						},
-						{
-							'text-[25px]': news,
-						},
-					]"
-				/>
-			</NuxtLink>
-			<NuxtLink
 				to="/accounts"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
 			>
@@ -67,6 +45,28 @@
 						},
 						{
 							'text-[25px] selected': accounts,
+						},
+						{
+							'text-[25px]': news,
+						},
+					]"
+				/>
+			</NuxtLink>
+			<NuxtLink
+				to="/settings"
+				class="hover:scale-95 transition-all duration-200 active:scale-90"
+			>
+				<nuxt-icon
+					name="settings"
+					:class="[
+						{
+							'text-[25px]': instances,
+						},
+						{
+							'text-[25px] selected': settings,
+						},
+						{
+							'text-[25px]': accounts,
 						},
 						{
 							'text-[25px]': news,

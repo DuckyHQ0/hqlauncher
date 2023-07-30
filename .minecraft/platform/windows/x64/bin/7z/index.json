@@ -1,0 +1,6 @@
+{
+    "_main": "7za.exe",
+    "7zxa.dll": "./7za.dll",
+    "7za.exe": "./7za.exe",
+    "7za.dll": "./7za.dll"
+}
