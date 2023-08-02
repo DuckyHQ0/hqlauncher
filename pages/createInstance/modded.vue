@@ -27,6 +27,8 @@
 							<p class="text-[20px]">Fabric</p>
 							<p class="text-[20px]">Quilt</p>
 							<p class="text-[20px]">Forge</p>
+							<p class="text-[20px]">Liteloader</p>
+							<p class="text-[20px]">Optifine</p>
 						</div>
 						<div class="flex flex-col gap-[32px]">
 							<p class="text-[13px] text-white/75">Mod Loader Version</p>

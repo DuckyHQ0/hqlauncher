@@ -39,7 +39,11 @@
 					</div>
 				</div>
 				<div class="flex gap-[32px] h-fit">
-					<SmallButton text="Create" />
+					<button
+						class="bg-brand-blue-1/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-brand-blue-1 hover:-translate-y-1 active:bg-brand-blue-1/50 active:translate-y-2 duration-200 cursor-pointer"
+					>
+						Create
+					</button>
 					<NuxtLink to="/"><SmallButton text="Cancel" color="dark" /></NuxtLink>
 				</div>
 			</div>
@@ -47,6 +51,6 @@
 	</div>
 </template>
 
-<script setup>
-
+<script>
+window.Electron.openFile();
 </script>

@@ -1,34 +1,47 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "main": "dist-electron/main.js",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/image": "^1.0.0-rc.1",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "@types/node": "^18.16.19",
-    "electron": "^25.3.0",
-    "electron-builder": "^24.4.0",
-    "nuxt": "^3.6.3",
-    "nuxt-electron": "^0.6.0",
-    "nuxt-icons": "^3.2.1",
-    "nuxt-webpack-optimisations": "^2.2.8",
-    "vite-plugin-electron": "^0.12.0",
-    "vite-plugin-electron-renderer": "^0.14.5"
-  },
-  "dependencies": {
-    "@headlessui/vue": "^1.7.14",
-    "@nuxt/webpack-builder": "^3.6.5",
-    "electron-icon-builder": "^2.0.1",
-    "gmll": "^3.0.4",
-    "minecraft-launcher-core": "^3.17.1",
-    "msmc": "^4.1.0"
-  }
+	"name": "nuxt-app",
+	"private": true,
+	"author": "dukc",
+	"description": "A next generation Minecraft launcher.",
+	"main": "dist-electron/main.js",
+	"build": {
+		"appId": "your.id",
+		"mac": {
+			"category": "your.app.category.type"
+		}
+	},
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@nuxt/image": "^1.0.0-rc.1",
+		"@nuxtjs/tailwindcss": "^6.8.0",
+		"@types/node": "^18.16.19",
+		"electron": "^25.3.0",
+		"electron-builder": "^24.6.3",
+		"nuxt": "^3.6.3",
+		"nuxt-electron": "^0.6.0",
+		"nuxt-icons": "^3.2.1",
+		"nuxt-webpack-optimisations": "^2.2.8",
+		"vite-plugin-electron": "^0.12.0",
+		"vite-plugin-electron-renderer": "^0.14.5"
+	},
+	"dependencies": {
+		"@electron/remote": "^2.0.10",
+		"@headlessui/vue": "^1.7.14",
+		"@nuxt/webpack-builder": "^3.6.5",
+		"easy-presence": "^1.2.0-oops1",
+		"electron-icon-builder": "^2.0.1",
+		"gmll": "^3.0.4",
+		"minecraft-launcher-core": "^3.17.1",
+		"msmc": "^4.1.0",
+		"ts-node": "^10.9.1"
+	}
 }

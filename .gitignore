@@ -8,6 +8,9 @@ dist
 # Node dependencies
 node_modules
 
+# Minecraft folder
+.minecraft
+
 # Logs
 logs
 *.log

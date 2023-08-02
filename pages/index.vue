@@ -27,7 +27,10 @@
 					class="bg-[#0f0f0f]/60 border-2 border-white/10 w-full h-full flex flex-col gap-[64px] max-[1500px]:h-fit overflow-y-auto backdrop-blur-xl rounded-[10px] p-[64px]"
 				>
 					<div class="flex flex-col gap-[32px]" id="Main">
-						<h4 class="text-[25px]">Main Instances</h4>
+						<div class="flex gap-[16px] align-middle place-items-center">
+							<h4 class="text-[25px]">Main Instances</h4>
+							<nuxt-icon name="chevron" class="hover:scale-105 active:scale-90 duration-200 cursor-pointer" />
+						</div>
 						<div id="Instances" class="flex flex-wrap gap-[32px]">
 							<div
 								class="bg-cover hover:scale-[1.025] duration-200 bg-no-repeat bg-clip-padding rounded-[10px] border-2 border-white/10 w-[300px] h-[200px] flex flex-col place-content-between bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.8)),url('/instances/1.png')] group"
@@ -52,7 +55,7 @@
 									</button>
 								</div>
 								<h2
-									class="text-[40px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
+									class="text-[36px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
 								>
 									Alive Mods
 								</h2>
@@ -80,7 +83,7 @@
 									</button>
 								</div>
 								<h2
-									class="text-[40px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
+									class="text-[36px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
 								>
 									Better MC
 								</h2>
@@ -109,7 +112,7 @@
 									</button>
 								</div>
 								<h2
-									class="text-[40px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
+									class="text-[36px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
 								>
 									Vanilla 1.20.1
 								</h2>
@@ -117,7 +120,10 @@
 						</div>
 					</div>
 					<div class="flex flex-col gap-[32px]" id="Other">
-						<h4 class="text-[25px]">Other Instances</h4>
+						<div class="flex gap-[16px] align-middle place-items-center">
+							<h4 class="text-[25px]">Other Instances</h4>
+							<nuxt-icon name="chevron" class="hover:scale-105 active:scale-90 duration-200 cursor-pointer" />
+						</div>
 						<div id="Instances" class="flex flex-wrap gap-[32px]">
 							<div
 								class="bg-cover hover:scale-[1.025] duration-200 bg-no-repeat bg-clip-padding rounded-[10px] border-2 border-white/10 w-[300px] h-[200px] flex flex-col place-content-between bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.8)),url('/instances/3.png')] group"
@@ -143,7 +149,7 @@
 									</button>
 								</div>
 								<h2
-									class="text-[40px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
+									class="text-[36px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
 								>
 									Snapshot
 								</h2>
