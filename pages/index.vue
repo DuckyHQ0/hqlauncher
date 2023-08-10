@@ -29,7 +29,10 @@
 					<div class="flex flex-col gap-[32px]" id="Main">
 						<div class="flex gap-[16px] align-middle place-items-center">
 							<h4 class="text-[25px]">Main Instances</h4>
-							<nuxt-icon name="chevron" class="hover:scale-105 active:scale-90 duration-200 cursor-pointer" />
+							<nuxt-icon
+								name="chevron"
+								class="hover:scale-105 active:scale-90 duration-200 cursor-pointer"
+							/>
 						</div>
 						<div id="Instances" class="flex flex-wrap gap-[32px]">
 							<div
@@ -39,6 +42,7 @@
 									class="opacity-0 grid group-hover:opacity-100 duration-200 transition-all bg-[#0f0f0f]/60 backdrop-blur-lg w-full h-fit p-[16px] rounded-[8px] gap-[8px] grid-rows-1 grid-cols-5"
 								>
 									<button
+										@click="launchInstance"
 										class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit"
 									>
 										<nuxt-icon name="play" />
@@ -122,7 +126,10 @@
 					<div class="flex flex-col gap-[32px]" id="Other">
 						<div class="flex gap-[16px] align-middle place-items-center">
 							<h4 class="text-[25px]">Other Instances</h4>
-							<nuxt-icon name="chevron" class="hover:scale-105 active:scale-90 duration-200 cursor-pointer" />
+							<nuxt-icon
+								name="chevron"
+								class="hover:scale-105 active:scale-90 duration-200 cursor-pointer"
+							/>
 						</div>
 						<div id="Instances" class="flex flex-wrap gap-[32px]">
 							<div
@@ -190,7 +197,7 @@
 						leave-to="opacity-0 scale-95"
 					>
 						<DialogPanel
-							class="w-full max-w-md transform overflow-hidden rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 p-[32px] text-left align-middle transition-all flex flex-col gap-[16px]"
+							class="w-fit transform overflow-hidden rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 p-[32px] text-left align-middle transition-all flex flex-col gap-[16px]"
 						>
 							<DialogTitle
 								as="h3"
@@ -226,7 +233,11 @@
 </template>
 
 <script setup>
-import { Auth } from "msmc";
+
+function launchInstance() {
+	useElectron().launchInstance()
+}
+
 import {
 	TransitionRoot,
 	TransitionChild,
@@ -240,19 +251,8 @@ const isOpen = ref(false);
 function closeModal() {
 	isOpen.value = false;
 }
+
 function openModal() {
 	isOpen.value = true;
-}
-
-function dez() {
-	console.log("dez");
-}
-
-async function playInst() {
-	const authManager = new Auth("select_account");
-	const xboxManager = await authManager.launch("nwjs");
-	const token = await xboxManager.getMinecraft();
-	const i777 = Instance.get("testInstance");
-	i777.launch(token.gmll());
 }
 </script>

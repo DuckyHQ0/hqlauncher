@@ -1,7 +1,10 @@
-const { contextBridge, ipcRenderer } = require("electron");
+// This is the preload script for Electron.
+// It runs in the renderer process before the page is loaded.
+// --------------------------------------------
 
-contextBridge.exposeInMainWorld("electronAPI", {
-	openFile: () => ipcRenderer.invoke("openFile"),
-});
+// import { contextBridge } from 'electron'
 
-console.log("---- electron/preload.ts ----");
+// process.once('loaded', () => {
+//   - Exposed variables will be accessible at "window.versions".
+//   contextBridge.exposeInMainWorld('versions', process.env)
+// })

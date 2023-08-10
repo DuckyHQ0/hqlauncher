@@ -1,26 +1,21 @@
-# Nuxt dev/build outputs
-.output
+# Nuxt
+node_modules
+*.log*
 .nuxt
 .nitro
 .cache
-dist
-
-# Node dependencies
-node_modules
-
-# Minecraft folder
-.minecraft
-
-# Logs
-logs
-*.log
-
-# Misc
-.DS_Store
-.fleet
-.idea
-
-# Local env files
+.output
 .env
-.env.*
-!.env.example
+dist
+.DS_Store
+
+# Electron
+electron-dist
+debug.log
+debug.log
+*.log
+debug.json
+errors.json
+
+.vscode
+.minecraft
