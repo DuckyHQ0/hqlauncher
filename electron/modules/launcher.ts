@@ -8,6 +8,7 @@ export default () => {
     ipcMain.handle('createInstance', (event) => {
         let instance = new Instance({ version: '1.20.1', name: 'NewInstance' })
         instance.save()
+        console.log("---- Created instance folder ----")
     })
 
     ipcMain.handle('launchInstance', async (event) => {
@@ -17,6 +18,8 @@ export default () => {
 
         let i777 = Instance.get('NewInstance')
         i777.launch(token.gmll())
+
+        console.log("---- Launching instance! ----")
     })
 }
 
