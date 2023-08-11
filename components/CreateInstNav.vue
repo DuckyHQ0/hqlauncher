@@ -1,6 +1,6 @@
 <template>
 	<div class="flex gap-[64px] h-fit w-fit flex-col">
-		<NuxtLink to="/createInstance/vanilla"
+		<NuxtLink to="/create/vanilla"
 			><div
 				class="flex gap-[16px] align-middle place-items-center cursor-pointer hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 			>
@@ -41,7 +41,7 @@
 				</p>
 			</div></NuxtLink
 		>
-		<NuxtLink to="/createInstance/modded"
+		<NuxtLink to="/create/modded"
 			><div
 				class="flex gap-[16px] align-middle place-items-center cursor-pointer hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 			>
@@ -82,7 +82,7 @@
 				</p>
 			</div></NuxtLink
 		>
-		<NuxtLink to="/createInstance/modrinth"
+		<NuxtLink to="/create/modrinth"
 			><div
 				class="flex gap-[16px] align-middle place-items-center cursor-pointer hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 			>
@@ -123,7 +123,7 @@
 				</p>
 			</div></NuxtLink
 		>
-		<NuxtLink to="/createInstance/curseforge"
+		<NuxtLink to="/create/curseforge"
 			><div
 				class="flex gap-[16px] align-middle place-items-center cursor-pointer hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 			>

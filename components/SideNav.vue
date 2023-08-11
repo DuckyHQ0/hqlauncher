@@ -1,12 +1,12 @@
 <template>
 	<div class="flex flex-col place-content-between w-full h-full">
-		<a href="/">
+		<nuxt-link href="/">
 			<nuxt-img
 				src="/logo.png"
 				class="w-[50px] h-[50px]"
 				alt="HQLauncher Logo"
 			/>
-		</a>
+		</nuxt-link>
 		<div class="flex flex-col gap-[32px] align-middle place-items-center">
 			<NuxtLink
 				to="/"

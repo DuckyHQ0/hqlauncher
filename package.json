@@ -1,8 +1,7 @@
 {
-  "name": "electron-nuxt3",
-  "author": "EternalC0DER",
-  "email": "s.eternalcoder@gmail.com",
-  "description": "Nuxt3 + Electron & More",
+  "name": "HQLauncher",
+  "author": "dukc",
+  "description": "A Minecraft launcher.",
   "version": "1.0.0",
   "private": true,
   "main": ".output/electron/background.js",
@@ -12,9 +11,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare && electron-builder install-app-deps",
     "transpile-electron": "tsc -p ./electron --outDir .output/electron",
-    "develec": "NODE_ENV=development concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess 'wait-on http://localhost:3000 && electron ./.output/electron/background.js'\"",
-    "devwin": "set NODE_ENV=development& concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess run.electron\"",
-    "build:electron": "yarn build && yarn transpile-electron && node build.js"
+    "elec": "NODE_ENV=development concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess 'wait-on http://localhost:3000 && electron ./.output/electron/background.js'\"",
+    "elec:win": "set NODE_ENV=development& concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess run.electron\"",
+    "build:elec": "yarn build && yarn transpile-electron && node build.js"
   },
   "devDependencies": {
     "@nuxt/image": "^1.0.0-rc.1",
@@ -39,6 +38,8 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.15",
     "@pinia/nuxt": "^0.4.7",
+    "@tailwindcss/forms": "^0.5.4",
+    "console-log-colors": "^0.4.0",
     "electron-log": "^5.0.0-beta.16",
     "electron-updater": "^5.3.0",
     "express": "^4.18.2",

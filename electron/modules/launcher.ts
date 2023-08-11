@@ -1,14 +1,15 @@
 import { ipcMain } from 'electron'
 import { Instance } from 'gmll'
 import { Auth } from 'msmc'
+import { green } from 'console-log-colors';
 
 // Module
 // ======
 export default () => {
     ipcMain.handle('createInstance', (event) => {
-        let instance = new Instance({ version: '1.20.1', name: 'NewInstance' })
-        instance.save()
-        console.log("---- Created instance folder ----")
+        const instance = new Instance({ version: '1.20.1', name: 'NewInstance' })
+        instance.install()
+        console.log(green("---- Created instance! ----"))
     })
 
     ipcMain.handle('launchInstance', async (event) => {
@@ -16,10 +17,10 @@ export default () => {
         const xboxManager = await authManager.launch('electron')
         const token = await xboxManager.getMinecraft()
 
-        let i777 = Instance.get('NewInstance')
+        const i777 = Instance.get('NewInstance')
         i777.launch(token.gmll())
 
-        console.log("---- Launching instance! ----")
+        console.log(green("---- Launching instance! ----"))
     })
 }
 

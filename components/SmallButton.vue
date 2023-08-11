@@ -2,27 +2,27 @@
 	<component
 		:class="[
 			{
-				'bg-brand-blue-1/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-brand-blue-1 hover:-translate-y-1 active:bg-brand-blue-1/50 active:translate-y-2 duration-200 cursor-pointer':
+				'bg-brand-blue-1/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-brand-blue-1 hover:-translate-y-1 active:bg-brand-blue-1/50 active:translate-y-2 duration-200 cursor-pointer backdrop-blur-lg':
 					primary,
 			},
 			{
-				'bg-brand-blue-1/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed':
+				'bg-brand-blue-1/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed backdrop-blur-lg':
 					blueDisabled,
 			},
 			{
-				'bg-[#0f0f0f]/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-[#0f0f0f] hover:-translate-y-1 active:bg-[#0f0f0f]/50 active:translate-y-2 duration-200 cursor-pointer':
+				'bg-[#0f0f0f]/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-[#0f0f0f] hover:-translate-y-1 active:bg-[#0f0f0f]/50 active:translate-y-2 duration-200 cursor-pointer backdrop-blur-lg':
 					dark,
 			},
 			{
-				'bg-[#0f0f0f]/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed':
+				'bg-[#0f0f0f]/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed backdrop-blur-lg':
 					darkDisabled,
 			},
 			{
-				'bg-hq-red/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-hq-red hover:-translate-y-1 active:bg-hq-red/50 active:translate-y-2 duration-200 cursor-pointer':
+				'bg-hq-red/75 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit hover:bg-hq-red hover:-translate-y-1 backdrop-blur-lg active:bg-hq-red/50 active:translate-y-2 duration-200 cursor-pointer':
 					red,
 			},
 			{
-				'bg-hq-red/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed':
+				'bg-hq-red/25 text-white/50 rounded-[10px] border-2 border-white/10 px-[16px] py-[8px] h-fit w-fit cursor-not-allowed backdrop-blur-lg':
 					redDisabled,
 			},
 		]"

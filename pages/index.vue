@@ -9,11 +9,18 @@
 					class="bg-[#0f0f0f]/60 border-2 border-white/10 flex gap-[32px] h-fit backdrop-blur-xl rounded-[10px] px-[64px] py-[8px]"
 				>
 					<NuxtLink
-						to="/createInstance/vanilla"
+						to="/create2/custom"
 						class="flex gap-[8px] place-items-center hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 					>
 						<nuxt-icon name="add" class="text-[20px]" />
 						<p class="text-white/75 text-[15px]">Create Instance</p>
+					</NuxtLink>
+					<NuxtLink
+						to="/create/vanilla"
+						class="flex gap-[8px] place-items-center hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
+					>
+						<nuxt-icon name="add" class="text-[20px]" />
+						<p class="text-white/75 text-[15px]">Create Instance Old</p>
 					</NuxtLink>
 					<button
 						@click="openModal"
