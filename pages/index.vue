@@ -123,46 +123,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="flex flex-col gap-[32px]" id="Other">
-						<div class="flex gap-[16px] align-middle place-items-center">
-							<h4 class="text-[25px]">Other Instances</h4>
-							<nuxt-icon
-								name="chevron"
-								class="hover:scale-105 active:scale-90 duration-200 cursor-pointer"
-							/>
-						</div>
-						<div id="Instances" class="flex flex-wrap gap-[32px]">
-							<div
-								class="bg-cover hover:scale-[1.025] duration-200 bg-no-repeat bg-clip-padding rounded-[10px] border-2 border-white/10 w-[300px] h-[200px] flex flex-col place-content-between bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.8)),url('/instances/3.png')] group"
-							>
-								<div
-									class="opacity-0 grid group-hover:opacity-100 duration-200 transition-all bg-[#0f0f0f]/60 backdrop-blur-lg w-full h-fit p-[16px] rounded-[8px] gap-[8px] grid-rows-1 grid-cols-5"
-								>
-									<button
-										@click="dez"
-										class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit"
-									>
-										<nuxt-icon name="play" />
-									</button>
-									<button
-										class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit"
-									>
-										<nuxt-icon name="settings" />
-									</button>
-									<button
-										class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit"
-									>
-										<nuxt-icon name="edit" />
-									</button>
-								</div>
-								<h2
-									class="text-[36px] font-medium leading-10 px-[16px] pb-[16px] cursor-default"
-								>
-									Snapshot
-								</h2>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

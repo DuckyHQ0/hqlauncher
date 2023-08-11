@@ -10,7 +10,7 @@
 				>
 					<TabGroup>
 						<TabList
-							class="flex rounded-[10px] gap-[32px] transition-all duration-200"
+							class="flex rounded-[10px] gap-[32px] transition-all duration-200 w-full h-fit"
 						>
 							<Tab
 								v-for="category in Object.keys(categories)"

@@ -24,6 +24,7 @@ function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         title: 'HQLauncher',
+        icon: path.join(__dirname, 'icons/win/icon.ico'),
         autoHideMenuBar: true,
         width: 1575,
         height: 855,
@@ -46,10 +47,7 @@ function createWindow() {
     if (singleInstance(app, mainWindow)) return
 
     // Open the DevTools.
-    !isProduction &&
-        mainWindow.webContents.openDevTools({
-            mode: 'bottom'
-        })
+    !isProduction && mainWindow.webContents.openDevTools({ mode: 'right' })
 
     return mainWindow
 }
@@ -57,14 +55,6 @@ function createWindow() {
 // App events
 // ==========
 app.whenReady().then(async () => {
-    if (!isProduction) {
-        try {
-            await session.defaultSession.loadExtension(path.join(__dirname, '../..', '__extensions', 'vue-devtools'))
-        } catch (err) {
-            console.log('[Electron::loadExtensions] An error occurred: ', err)
-        }
-    }
-
     const mainWindow = createWindow()
     if (!mainWindow) return
 

@@ -12,8 +12,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare && electron-builder install-app-deps",
     "transpile-electron": "tsc -p ./electron --outDir .output/electron",
-    "dev:electron": "NODE_ENV=development concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess 'wait-on http://localhost:3000 && electron ./.output/electron/background.js'\"",
-    "dev:electron:win": "set NODE_ENV=development& concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess run.electron\"",
+    "develec": "NODE_ENV=development concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess 'wait-on http://localhost:3000 && electron ./.output/electron/background.js'\"",
+    "devwin": "set NODE_ENV=development& concurrently --kill-others \"nuxt dev\" \"tsc-watch -p ./electron --outDir .output/electron --onSuccess run.electron\"",
     "build:electron": "yarn build && yarn transpile-electron && node build.js"
   },
   "devDependencies": {
@@ -24,6 +24,7 @@
     "concurrently": "^8.0.1",
     "electron": "^23.2.1",
     "electron-builder": "^23.6.0",
+    "electron-icon-maker": "^0.0.5",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
