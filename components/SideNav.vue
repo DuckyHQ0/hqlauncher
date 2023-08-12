@@ -1,9 +1,9 @@
 <template>
-	<div class="flex flex-col place-content-between w-full h-full">
-		<nuxt-link href="/">
+	<div class="flex flex-col place-content-between w-[50px] h-full">
+		<nuxt-link class="w-[50px] h-[50px]" href="/">
 			<nuxt-img
 				src="/logo.png"
-				class="w-[50px] h-[50px]"
+				class="w-full h-[50px]"
 				alt="HQLauncher Logo"
 			/>
 		</nuxt-link>

@@ -28,8 +28,8 @@ function createWindow() {
         autoHideMenuBar: true,
         width: 1575,
         height: 855,
-        minWidth: 1225,
-        minHeight: 805,
+        minWidth: 1280,
+        minHeight: 840,
         webPreferences: {
             devTools: !isProduction,
             nodeIntegration: true,
@@ -55,6 +55,7 @@ function createWindow() {
 // App events
 // ==========
 app.whenReady().then(async () => {
+    
     if (!isProduction) {
         try {
             await session.defaultSession.loadExtension(path.join(__dirname, '../..', '__extensions', 'vue-devtools'))
@@ -66,6 +67,10 @@ app.whenReady().then(async () => {
     const mainWindow = createWindow()
     if (!mainWindow) return
 
+    // Maximize
+
+    mainWindow.maximize();
+    
     // Load renderer process
     dynamicRenderer(mainWindow)
 

@@ -1,15 +1,13 @@
 import { ipcMain } from 'electron'
 import { Instance } from 'gmll'
 import { Auth } from 'msmc'
-import { green } from 'console-log-colors';
 
-// Module
-// ======
 export default () => {
-    ipcMain.handle('createInstance', (event) => {
-        const instance = new Instance({ version: '1.20.1', name: 'NewInstance' })
+    ipcMain.handle('createInstance', (event, v) => {
+        const instance = new Instance({ version: v, name: 'NewInstance' })
         instance.install()
-        console.log(green("---- Created instance! ----"))
+
+        console.log(v)
     })
 
     ipcMain.handle('launchInstance', async (event) => {
@@ -20,8 +18,6 @@ export default () => {
         const i777 = Instance.get('NewInstance')
         i777.launch(token.gmll())
 
-        console.log(green("---- Launching instance! ----"))
+        console.log('---- Launching instance! ----')
     })
 }
-
-// https://www.electronjs.org/docs/latest/tutorial/ipc

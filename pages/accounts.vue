@@ -19,13 +19,6 @@
 						href="#"
 						class="flex gap-[8px] place-items-center hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 					>
-						<nuxt-icon name="check" class="text-[20px]" />
-						<p class="text-white/75 text-[15px]">Set Default Account</p>
-					</a>
-					<a
-						href="#"
-						class="flex gap-[8px] place-items-center hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
-					>
 						<nuxt-icon name="person" class="text-[20px]" />
 						<p class="text-white/75 text-[15px]">Set Skin</p>
 					</a>
@@ -43,8 +36,8 @@
 					<div class="flex flex-row gap-[32px]" id="headinfo">
 						<p class="text-[13px] text-white/75">Icon</p>
 						<p class="text-[13px] text-white/75 ml-9">Username</p>
-						<p class="text-[13px] text-white/75 ml-[8.3rem]">Account</p>
-						<p class="text-[13px] text-white/75 ml-[10.25rem]">State</p>
+						<p class="text-[13px] text-white/75 ml-[8rem]">Account</p>
+						<p class="text-[13px] text-white/75 ml-[10rem]">State</p>
 					</div>
 					<div class="flex flex-col gap-[32px]">
 						<div

@@ -5,8 +5,9 @@ export default function useElectron() {
     // Window title bar actions
     // ========================
     const actions = {
-        createInstance: () => electron.ipcRenderer.invoke('createInstance'),
-        launchInstance: () => electron.ipcRenderer.invoke('launchInstance')
+        createInstance: (v: any) => electron.ipcRenderer.invoke('createInstance', v),
+        launchInstance: () => electron.ipcRenderer.invoke('launchInstance'),
+        printVer: () => electron.ipcRenderer.invoke('printVer')
     }
 
     // Initialize ipcRenderer

@@ -6,13 +6,17 @@
 	color: #0db7ff;
 }
 
+::selection {
+	background: #0db7ff;
+}
+
 .grid-fill {
 	grid-template-columns: 50px auto;
 }
 
 ::-webkit-scrollbar {
 	border-radius: 100px;
-	width: 7px;
+	width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,7 +26,7 @@
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 100px;
-	background: #ffffff15;
+	background: #ffffff17;
 }
 
 ::-webkit-scrollbar-thumb:hover {
