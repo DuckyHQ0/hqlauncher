@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-[url(/hql-bg.png)] p-[128px] gap-[128px] grid grid-cols-2 bg-cover w-screen h-screen text-white grid-fill overflow-hidden">
+        <div class="bg-[url(/hql-bg.png)] p-[110px] gap-[110px] grid grid-cols-2 bg-cover w-screen h-screen text-white grid-fill overflow-hidden">
             <SideNav selected="news" />
             <div class="bg-[#0f0f0f]/60 border-2 border-white/10 w-full h-full flex flex-col gap-[32px] overflow-y-auto backdrop-blur-xl rounded-[10px] p-[64px]">
                 <TabGroup>

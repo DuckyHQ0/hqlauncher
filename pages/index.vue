@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="bg-[url(/hql-bg.png)] p-[128px] gap-[128px] grid grid-cols-2 bg-cover w-screen h-screen text-white grid-fill overflow-hidden"
+			class="bg-[url(/hql-bg.png)] p-[110px] gap-[110px] grid grid-cols-2 bg-cover w-screen h-screen text-white grid-fill overflow-hidden"
 		>
 			<SideNav selected="instances" />
 			<div class="flex flex-col w-full overflow-y-auto gap-[64px]">

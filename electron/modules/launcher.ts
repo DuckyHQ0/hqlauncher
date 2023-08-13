@@ -3,11 +3,9 @@ import { Instance } from 'gmll'
 import { Auth } from 'msmc'
 
 export default () => {
-    ipcMain.handle('createInstance', (event, v) => {
-        const instance = new Instance({ version: v, name: 'NewInstance' })
-        instance.install()
-
-        console.log(v)
+    ipcMain.handle('createInstance', (event, instVersion, instName) => {
+        console.log(instVersion)
+        console.log(instName)
     })
 
     ipcMain.handle('launchInstance', async (event) => {

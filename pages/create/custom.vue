@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-[url(/hql-bg.png)] p-[128px] gap-[128px] flex bg-cover w-screen h-screen text-white grid-fill overflow-hidden">
+        <div class="bg-[url(/hql-bg.png)] p-[110px] gap-[110px] flex bg-cover w-screen h-screen text-white grid-fill overflow-hidden">
             <SideNav selected="instances" />
             <div class="flex gap-[48px] h-full w-full overflow-clip">
                 <div
@@ -13,7 +13,7 @@
                                 type="text"
                                 class="bg-[#0f0f0f]/40 w-full border-2 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                 placeholder="Instance 1"
-                                name="folder"
+                                v-model="name"
                             />
                         </div>
                         <div class="flex flex-col gap-[16px]">
@@ -241,14 +241,21 @@ const preset = [
     { id: 3, name: 'Optifine', unavailable: false }
 ]
 const group = [{ id: 1, name: 'Main Instances', unavailable: false }]
+
 const selVersion = ref(version[0])
 const selLoader = ref(loader[0])
 const selPreset = ref(preset[0])
 const selGroup = ref(group[0])
 const selLoaderV = ref(loaderV[0])
 
+const name = ref('')
+
 function createInstFunc() {
-    let v = selVersion._rawValue.name
-    useElectron().createInstance(v)
+    let instVersion = selVersion._rawValue.name
+    let instName = name._rawValue
+
+    console.log(instName)
+    console.log(instVersion)
+    useElectron().createInstance(instVersion, instName)
 }
 </script>
