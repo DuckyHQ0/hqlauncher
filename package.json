@@ -23,7 +23,6 @@
     "concurrently": "^8.0.1",
     "electron": "^23.2.1",
     "electron-builder": "^23.6.0",
-    "electron-icon-maker": "^0.0.5",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

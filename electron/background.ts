@@ -5,6 +5,7 @@ import { init } from 'gmll'
 import singleInstance from './singleInstance'
 import dynamicRenderer from './dynamicRenderer'
 import launcherModule from './modules/launcher'
+import instancesModule from './modules/instances'
 import updaterModule from './modules/updater'
 import macMenuModule from './modules/macMenu'
 
@@ -15,7 +16,7 @@ const isProduction = process.env.NODE_ENV !== 'development'
 const platform: 'darwin' | 'win32' | 'linux' = process.platform as any
 const architucture: '64' | '32' = os.arch() === 'x64' ? '64' : '32'
 const headerSize = 32
-const modules = [launcherModule, macMenuModule, updaterModule]
+const modules = [launcherModule, instancesModule, macMenuModule]
 
 // Initialize app window
 // =====================
@@ -55,7 +56,6 @@ function createWindow() {
 // App events
 // ==========
 app.whenReady().then(async () => {
-    
     if (!isProduction) {
         try {
             await session.defaultSession.loadExtension(path.join(__dirname, '../..', '__extensions', 'vue-devtools'))
@@ -68,9 +68,8 @@ app.whenReady().then(async () => {
     if (!mainWindow) return
 
     // Maximize
+    mainWindow.maximize()
 
-    mainWindow.maximize();
-    
     // Load renderer process
     dynamicRenderer(mainWindow)
 
