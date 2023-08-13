@@ -4,8 +4,9 @@ import { Auth } from 'msmc'
 
 export default () => {
     ipcMain.handle('createInstance', (event, instVersion, instName) => {
-        console.log(instVersion)
-        console.log(instName)
+        const instance = new Instance({ version: instVersion, name: instName })
+        instance.save().install()
+        console.log('---- Created instance! ----')
     })
 
     ipcMain.handle('launchInstance', async (event) => {
@@ -13,7 +14,7 @@ export default () => {
         const xboxManager = await authManager.launch('electron')
         const token = await xboxManager.getMinecraft()
 
-        const i777 = Instance.get('NewInstance')
+        const i777 = Instance.get('inst2')
         i777.launch(token.gmll())
 
         console.log('---- Launching instance! ----')
