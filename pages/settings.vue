@@ -15,7 +15,7 @@
                         <div class="flex flex-col gap-[32px]">
                             <div class="flex place-content-between align-middle place-items-center">
                                 <p class="text-[20px]" v-tooltip="'Automatically goes to console when game starts'">Show console when game starts</p>
-                                <Switch v-model="enabled1" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                <Switch v-model="enabled1" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/60 border-2 border-white/10">
                                     <span
                                         :class="enabled1 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
@@ -25,7 +25,7 @@
                             </div>
                             <div class="flex place-content-between align-middle place-items-center" m>
                                 <p class="text-[20px]" v-tooltip="'Hides launcher when Minecraft launches'">Hide launcher when game starts</p>
-                                <Switch v-model="enabled2" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                <Switch v-model="enabled2" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/60 border-2 border-white/10">
                                     <span
                                         :class="enabled2 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
@@ -38,7 +38,7 @@
                                 <Listbox v-model="selLauncher">
                                     <div class="relative mt-1 z-50">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selLauncher.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -70,7 +70,7 @@
                                 <Listbox v-model="selModrinth">
                                     <div class="relative mt-1 z-40">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selModrinth.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -102,7 +102,7 @@
                                 <Listbox v-model="selCurse">
                                     <div class="relative mt-1 z-30">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selCurse.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -131,7 +131,7 @@
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
                                 <p class="text-[20px]" v-tooltip="'Enables a Discord presense on your profile when playing HQL.'">Enable Discord status when playing</p>
-                                <Switch v-model="enabled3" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                <Switch v-model="enabled3" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/60 border-2 border-white/10">
                                     <span
                                         :class="enabled3 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
@@ -144,12 +144,12 @@
                                 <div class="flex flex-row gap-[16px]">
                                     <input
                                         type="text"
-                                        class="bg-[#0f0f0f]/40 border-2 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                        class="bg-[#0f0f0f]/60 border-2 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                         placeholder="Default (in program path)"
                                         name="folder"
                                     />
                                     <button
-                                        class="py-2 px-3 bg-[#0f0f0f]/40 border-2 border-white/10 rounded-[10px] hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
+                                        class="py-2 px-3 bg-[#0f0f0f]/60 border-2 border-white/10 rounded-[10px] hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
                                     >
                                         Browse
                                     </button>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
                                 <p class="text-[20px]" v-tooltip="'Uses all CPU threads to speed up downloading. Disable for more CPU preformance.'">Multithreaded downloading</p>
-                                <Switch v-model="enabled4" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                <Switch v-model="enabled4" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/60 border-2 border-white/10">
                                     <span
                                         :class="enabled4 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
@@ -167,7 +167,7 @@
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
                                 <p class="text-[20px]" v-tooltip="'Toggle tooltips like these'">Enable tooltips</p>
-                                <Switch v-model="enabled5" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                <Switch v-model="enabled5" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/60 border-2 border-white/10">
                                     <span
                                         :class="enabled5 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
@@ -187,7 +187,7 @@
                                     <Listbox v-model="selJavaInst">
                                         <div class="relative mt-1 z-50">
                                             <ListboxButton
-                                                class="relative w-full rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                                class="relative w-full rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                             >
                                                 <span class="block truncate">{{ selJavaInst.name }}</span>
                                                 <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="flex flex-col gap-[32px] h-fit">
                                     <h4 class="text-[28px] font-medium w-fit" v-tooltip="'Extra arguments for Java'">Java Arguments</h4>
-                                    <textarea class="bg-[#0f0f0f]/40 border-2 w-full h-64 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"></textarea>
+                                    <textarea class="bg-[#0f0f0f]/60 border-2 w-full h-64 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"></textarea>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-[32px] h-fit">
@@ -226,7 +226,7 @@
                                         <p class="text-[20px]" v-tooltip="'Min amount of memory Minecraft is allowed to use'">Minimum:</p>
                                         <input
                                             type="number"
-                                            class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                            class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                             placeholder="Default: 0 MB"
                                         />
                                     </div>
@@ -234,7 +234,7 @@
                                         <p class="text-[20px]" v-tooltip="'Max amount of memory Minecraft is allowed to use'">Maximum:</p>
                                         <input
                                             type="number"
-                                            class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                            class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                             placeholder="Default: 4096 MB"
                                         />
                                     </div>
@@ -247,13 +247,13 @@
                                             <p class="text-[20px] text-white">X:</p>
                                             <input
                                                 type="number"
-                                                class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                                class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                                 placeholder="Default: 854"
                                             />
                                             <p class="text-[20px] text-white">Y:</p>
                                             <input
                                                 type="number"
-                                                class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                                class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                                 placeholder="Default: 480"
                                             />
                                         </div>
@@ -261,7 +261,7 @@
                                         <div class="flex flex-rows gap-[32px] align-middle place-items-center">
                                             <input
                                                 type="text"
-                                                class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                                class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                                 placeholder="None..."
                                             />
                                         </div>
@@ -335,7 +335,7 @@
                                 <p class="text-[20px] font-light text-white"> All of your account data, instances, and settings will be deleted. </p>
                                 <div class="flex gap-[8px] align-middle place-items-center">
                                     <p class="text-[20px] font-light text-white">Type</p>
-                                    <p class="text-[15px] text-white bg-[#0f0f0f]/40 border border-white/10 rounded-[10px] p-1 px-2"> clear my data </p>
+                                    <p class="text-[15px] text-white bg-[#0f0f0f]/60 border border-white/10 rounded-[10px] p-1 px-2"> clear my data </p>
                                     <p class="text-[20px] font-light text-white"> below to confirm. </p>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@
                             <div class="mt-2 flex gap-[16px] text-white">
                                 <input
                                     type="text"
-                                    class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                    class="bg-[#0f0f0f]/60 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                     placeholder="clear my data"
                                 />
                                 <SmallButton text="Clear" color="redDisabled" />

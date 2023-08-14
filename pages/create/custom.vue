@@ -11,7 +11,7 @@
                             <p class="text-[13px] text-white/75">Instance Name</p>
                             <input
                                 type="text"
-                                class="bg-[#0f0f0f]/40 w-full border-2 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
+                                class="bg-[#0f0f0f]/60 w-full border-2 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
                                 placeholder="Instance 1"
                                 v-model="name"
                             />
@@ -21,7 +21,7 @@
                             <Listbox v-model="selGroup">
                                 <div class="relative mt-1 z-10">
                                     <ListboxButton
-                                        class="relative w-full rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                        class="relative w-full rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                     >
                                         <span class="block truncate">{{ selGroup.name }}</span>
                                         <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -76,7 +76,7 @@
                                     <Listbox v-model="selVersion">
                                         <div class="relative mt-1 z-40">
                                             <ListboxButton
-                                                class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                                class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                             >
                                                 <span class="block truncate">{{ selVersion.name }}</span>
                                                 <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -103,7 +103,7 @@
                                         </div>
                                     </Listbox>
                                     <div class="flex gap-[8px]">
-                                        <input id="snapshot" type="checkbox" class="form-checkbox rounded-[5px] border-2 border-white/10 bg-[#0f0f0f]/40 text-brand-blue-1" />
+                                        <input id="snapshot" type="checkbox" class="form-checkbox rounded-[5px] border-2 border-white/10 bg-[#0f0f0f]/60 text-brand-blue-1" />
                                         <label for="snapshot" class="text-[13px]">Include snapshots</label>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                                 <Listbox v-model="selLoader">
                                     <div class="relative mt-1 z-30">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selLoader.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -145,7 +145,7 @@
                                 <Listbox v-model="selLoaderV">
                                     <div class="relative mt-1 z-20">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selLoaderV.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
@@ -177,7 +177,7 @@
                                 <Listbox v-model="selPreset">
                                     <div class="relative mt-1 z-10">
                                         <ListboxButton
-                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/40 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
+                                            class="relative w-40 rounded-[10px] bg-[#0f0f0f]/60 backdrop-blur-[50px] border-2 border-white/10 text-white py-2 pl-3 pr-10 text-left"
                                         >
                                             <span class="block truncate">{{ selPreset.name }}</span>
                                             <span class="pointer-events-none absolute inset-y-0 right-0 flex place-items-center align-middle items-center pr-2">
