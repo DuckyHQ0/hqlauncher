@@ -5,12 +5,14 @@
 				src="/logo.png"
 				class="w-full h-[50px]"
 				alt="HQLauncher Logo"
+				v-tooltip="'HQLauncher 0.1'"
 			/>
 		</nuxt-link>
 		<div class="flex flex-col gap-[32px] align-middle place-items-center">
 			<NuxtLink
 				to="/"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
+				v-tooltip="'Instances'"
 			>
 				<nuxt-icon
 					name="instances-list"
@@ -33,6 +35,7 @@
 			<NuxtLink
 				to="/accounts"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
+				v-tooltip="'Accounts'"
 			>
 				<nuxt-icon
 					name="accounts"
@@ -55,6 +58,7 @@
 			<NuxtLink
 				to="/settings"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
+				v-tooltip="'Settings'"
 			>
 				<nuxt-icon
 					name="settings"
@@ -77,6 +81,7 @@
 			<NuxtLink
 				to="/news"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
+				v-tooltip="'News'"
 			>
 				<nuxt-icon
 					name="news"
@@ -99,6 +104,7 @@
 			<NuxtLink
 				to="/"
 				class="hover:scale-95 transition-all duration-200 active:scale-90"
+				v-tooltip="'Help'"
 			>
 				<nuxt-icon name="help" class="text-[25px]" />
 			</NuxtLink>
