@@ -173,7 +173,7 @@
                                 </Listbox>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Preset</p>
+                                <p class="text-[20px]" v-tooltip="'We made some presets for optimization mods!'">Preset</p>
                                 <Listbox v-model="selPreset">
                                     <div class="relative mt-1 z-10">
                                         <ListboxButton

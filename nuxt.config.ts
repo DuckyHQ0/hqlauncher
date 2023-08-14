@@ -5,5 +5,5 @@ export default defineNuxtConfig({
         shim: false
     },
     ssr: false,
-    modules: ['@nuxtjs/tailwindcss', '@nuxt/image', 'nuxt-icons']
+    modules: ['@nuxtjs/tailwindcss', '@nuxt/image', 'nuxt-icons', 'floating-vue/nuxt']
 })

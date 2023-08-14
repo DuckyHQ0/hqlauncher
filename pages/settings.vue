@@ -14,7 +14,7 @@
                         <h4 class="text-[40px] font-medium">Launcher Settings</h4>
                         <div class="flex flex-col gap-[32px]">
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Show console when game starts</p>
+                                <p class="text-[20px]" v-tooltip="'Automatically goes to console when game starts'">Show console when game starts</p>
                                 <Switch v-model="enabled1" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
                                     <span
                                         :class="enabled1 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
@@ -24,7 +24,7 @@
                                 </Switch>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center" m>
-                                <p class="text-[20px]">Hide launcher when game starts</p>
+                                <p class="text-[20px]" v-tooltip="'Hides launcher when Minecraft launches'">Hide launcher when game starts</p>
                                 <Switch v-model="enabled2" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
                                     <span
                                         :class="enabled2 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
@@ -34,7 +34,7 @@
                                 </Switch>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Launcher release channel</p>
+                                <p class="text-[20px]" v-tooltip="'Release channel for updates on this launcher'">Launcher release channel</p>
                                 <Listbox v-model="selLauncher">
                                     <div class="relative mt-1 z-50">
                                         <ListboxButton
@@ -66,7 +66,7 @@
                                 </Listbox>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Modrinth release channel</p>
+                                <p class="text-[20px]" v-tooltip="'Release channel for Modrinth mods & packs'">Modrinth release channel</p>
                                 <Listbox v-model="selModrinth">
                                     <div class="relative mt-1 z-40">
                                         <ListboxButton
@@ -98,7 +98,7 @@
                                 </Listbox>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Curseforge release channel</p>
+                                <p class="text-[20px]" v-tooltip="'Release channel for Curseforge mods & packs'">Curseforge release channel</p>
                                 <Listbox v-model="selCurse">
                                     <div class="relative mt-1 z-30">
                                         <ListboxButton
@@ -130,7 +130,7 @@
                                 </Listbox>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Enable Discord status when playing</p>
+                                <p class="text-[20px]" v-tooltip="'Enables a Discord presense on your profile when playing HQL.'">Enable Discord status when playing</p>
                                 <Switch v-model="enabled3" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
                                     <span
                                         :class="enabled3 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
@@ -140,7 +140,7 @@
                                 </Switch>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Instances folder</p>
+                                <p class="text-[20px]" v-tooltip="'The folder where your instances are saved.'">Instances folder</p>
                                 <div class="flex flex-row gap-[16px]">
                                     <input
                                         type="text"
@@ -156,10 +156,20 @@
                                 </div>
                             </div>
                             <div class="flex place-content-between align-middle place-items-center">
-                                <p class="text-[20px]">Multithreaded downloading</p>
+                                <p class="text-[20px]" v-tooltip="'Uses all CPU threads to speed up downloading. Disable for more CPU preformance.'">Multithreaded downloading</p>
                                 <Switch v-model="enabled4" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
                                     <span
                                         :class="enabled4 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
+                                        class="inline-block h-4 w-4 transform rounded-full transition"
+                                    >
+                                    </span>
+                                </Switch>
+                            </div>
+                            <div class="flex place-content-between align-middle place-items-center">
+                                <p class="text-[20px]" v-tooltip="'Toggle tooltips like these'">Enable tooltips</p>
+                                <Switch v-model="enabled5" class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#0f0f0f]/40 border-2 border-white/10">
+                                    <span
+                                        :class="enabled5 ? 'translate-x-[1.35rem] bg-[#0DB7FF]' : 'translate-x-[0.15rem] bg-white/10'"
                                         class="inline-block h-4 w-4 transform rounded-full transition"
                                     >
                                     </span>
@@ -173,7 +183,7 @@
                         <div class="grid grid-cols-2 max-[1325px]:grid-cols-1 gap-[32px]">
                             <div class="flex flex-col gap-[32px] h-fit">
                                 <div class="flex flex-col gap-[32px] h-fit">
-                                    <h4 class="text-[40px]">Java Installation</h4>
+                                    <h4 class="text-[28px] font-medium w-fit" v-tooltip="'The default Java installation to use with instances'">Java Installation</h4>
                                     <Listbox v-model="selJavaInst">
                                         <div class="relative mt-1 z-50">
                                             <ListboxButton
@@ -205,15 +215,15 @@
                                     </Listbox>
                                 </div>
                                 <div class="flex flex-col gap-[32px] h-fit">
-                                    <h4 class="text-[40px]">Java Arguments</h4>
+                                    <h4 class="text-[28px] font-medium w-fit" v-tooltip="'Extra arguments for Java'">Java Arguments</h4>
                                     <textarea class="bg-[#0f0f0f]/40 border-2 w-full h-64 border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"></textarea>
                                 </div>
                             </div>
                             <div class="flex flex-col gap-[32px] h-fit">
                                 <div class="flex flex-col gap-[32px] h-fit">
-                                    <h4 class="text-[40px]">Memory Allocations</h4>
+                                    <h4 class="text-[28px] font-medium">Memory Allocations</h4>
                                     <div class="flex flex-rows gap-[32px] place-items-center align-middle">
-                                        <p class="text-[20px]">Minimum:</p>
+                                        <p class="text-[20px]" v-tooltip="'Min amount of memory Minecraft is allowed to use'">Minimum:</p>
                                         <input
                                             type="number"
                                             class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
@@ -221,7 +231,7 @@
                                         />
                                     </div>
                                     <div class="flex flex-rows gap-[32px] place-items-center align-middle">
-                                        <p class="text-[20px]">Maximum:</p>
+                                        <p class="text-[20px]" v-tooltip="'Max amount of memory Minecraft is allowed to use'">Maximum:</p>
                                         <input
                                             type="number"
                                             class="bg-[#0f0f0f]/40 border-2 w-full border-white/10 rounded-[10px] py-2 px-3 placeholder-white/25"
@@ -230,9 +240,9 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-[32px] h-fit">
-                                    <h4 class="text-[40px]">Miscellaneous</h4>
+                                    <h4 class="text-[28px] font-medium">Miscellaneous</h4>
                                     <div class="flex flex-col gap-[32px]">
-                                        <h4 class="text-[20px]">Window Dimensions</h4>
+                                        <h4 class="text-[20px] w-fit" v-tooltip="'Window dimensions for Minecraft when it starts'">Window Dimensions</h4>
                                         <div class="flex flex-rows gap-[32px] align-middle place-items-center">
                                             <p class="text-[20px] text-white">X:</p>
                                             <input
@@ -247,7 +257,7 @@
                                                 placeholder="Default: 480"
                                             />
                                         </div>
-                                        <h4 class="text-[20px]">Default Starting Server</h4>
+                                        <h4 class="text-[20px] w-fit" v-tooltip="'The server that Minecraft will automatically go to when game starts'">Default Starting Server</h4>
                                         <div class="flex flex-rows gap-[32px] align-middle place-items-center">
                                             <input
                                                 type="text"
@@ -355,6 +365,7 @@ const enabled1 = ref(true)
 const enabled2 = ref(false)
 const enabled3 = ref(true)
 const enabled4 = ref(true)
+const enabled5 = ref(true)
 
 // modal
 
