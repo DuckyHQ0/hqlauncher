@@ -6,6 +6,7 @@ import singleInstance from './singleInstance'
 import dynamicRenderer from './dynamicRenderer'
 import launcherModule from './modules/launcher'
 import instancesModule from './modules/instances'
+import instNamesList from './modules/instances'
 import updaterModule from './modules/updater'
 import macMenuModule from './modules/macMenu'
 
@@ -25,7 +26,7 @@ function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         title: 'HQLauncher',
-        icon: path.join(__dirname, '/electron/icons/icon.ico'),
+        icon: path.join(__dirname, './icons/win/icon.ico'),
         autoHideMenuBar: true,
         width: 1575,
         height: 855,
@@ -48,7 +49,7 @@ function createWindow() {
     if (singleInstance(app, mainWindow)) return
 
     // Open the DevTools.
-    !isProduction && mainWindow.webContents.openDevTools({ mode: 'right' })
+    !isProduction && mainWindow.webContents.openDevTools({ mode: 'detach' })
 
     return mainWindow
 }
@@ -87,6 +88,13 @@ app.whenReady().then(async () => {
     })
 
     console.log('[!] Loading modules: Done.' + '\r\n' + '-'.repeat(30))
+
+    mainWindow.webContents.on('did-finish-load', () => {
+
+        
+    })
+
+    console.log(instNamesList)
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the

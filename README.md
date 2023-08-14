@@ -17,11 +17,15 @@ This project is currently a work in progress. Currently in alpha-alpha-alpha sta
 ![](/public/screenshots/2.png)
 ![](/public/screenshots/1.png)
 
-## How to run
+## How to Run
+This project is unstable, I'm still making all of the features, but if you want to check it out then follow these directions:
+
+Download source code from this repo
+
 Install Node.js (18.16.0 is the version im using)
 
 In the project directory, run:
-```powershell
+```bash
 # Install dependencies
 npm install
 

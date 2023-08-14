@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { webContents } from 'electron'
 
 export default () => {
     const directoryPath = path.join(__dirname, '../../../.minecraft/launcher/profiles/')
@@ -11,7 +10,6 @@ export default () => {
         }
 
         let jsonFiles = files.filter((file) => path.extname(file).toLowerCase() === '.json')
-        console.log(jsonFiles)
 
         jsonFiles.forEach((file) => {
             fs.readFile(path.join(directoryPath, file), 'utf8', function (err, data) {
@@ -21,8 +19,9 @@ export default () => {
                 }
 
                 let jsonObject = JSON.parse(data)
+                let instNamesList = jsonObject.name
 
-                console.log(jsonObject.name)
+                return instNamesList
             })
         })
     })
