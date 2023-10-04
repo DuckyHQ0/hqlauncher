@@ -95,7 +95,6 @@ app.whenReady().then(async () => {
                 let jsonObject = JSON.parse(data)
                 let instNamesList = jsonObject.name
                 
-                console.log(instNamesList)
                 mainWindow.webContents.send('listInstances', instNamesList)
             })
         })

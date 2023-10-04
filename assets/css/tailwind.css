@@ -2,37 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .instance-card-base {
+        @apply bg-cover hover:scale-[1.025] duration-200 bg-no-repeat bg-clip-padding rounded-[10px] border-2 border-white/10 flex flex-col place-content-between bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.8)),url('/instances/2.png')];
+    }
+}
+
 .selected {
-	color: #0db7ff;
+    color: #0db7ff;
 }
 
 ::selection {
-	background: #0db7ff;
+    background: #0db7ff;
 }
 
 .grid-fill {
-	grid-template-columns: 50px auto;
+    grid-template-columns: 50px auto;
 }
 
 ::-webkit-scrollbar {
-	border-radius: 100px;
-	width: 6px;
+    border-radius: 100px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-	border-radius: 100px;
-	background: transparent;
+    border-radius: 100px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 100px;
-	background: #ffffff17;
+    border-radius: 100px;
+    background: #ffffff17;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #ffffff33;
+    background: #ffffff33;
 }
 
 .text-shadow {
-	text-shadow: 10px 10px 18px #000000;
+    text-shadow: 10px 10px 18px #000000;
 }
