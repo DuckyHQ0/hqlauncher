@@ -19,9 +19,9 @@
             <button v-tooltip="'Play'" class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit">
                 <nuxt-icon name="play" />
             </button>
-            <button v-tooltip="'Instance Settings'" class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit">
+            <NuxtLink to="/instance/console" v-tooltip="'Instance Settings'" class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit">
                 <nuxt-icon name="settings" />
-            </button>
+            </NuxtLink>
             <button v-tooltip="'Edit Card'" class="hover:scale-105 hover:text-brand-blue-1 active:scale-90 duration-200 w-fit h-fit">
                 <nuxt-icon name="edit" />
             </button>

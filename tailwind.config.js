@@ -3,7 +3,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Outfit']
+                sans: ['Outfit'],
+                console: ['JetBrains-Mono']
             },
             colors: {
                 'brand-blue-1': '#0db7ff',

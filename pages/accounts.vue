@@ -20,7 +20,7 @@
 						class="flex gap-[8px] place-items-center hover:scale-[.95] transition-all duration-150 active:scale-[.87]"
 					>
 						<nuxt-icon name="person" class="text-[20px]" />
-						<p class="text-white/75 text-[15px]">Set Skina</p>
+						<p class="text-white/75 text-[15px]">Set Skin</p>
 					</a>
 					<a
 						href="#"
