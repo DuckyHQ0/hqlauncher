@@ -1,12 +1,11 @@
 import * as path from 'path'
+import fs from 'fs'
 import * as os from 'os'
 import { app, BrowserWindow, session } from 'electron'
 import { init } from 'gmll'
 import singleInstance from './singleInstance'
 import dynamicRenderer from './dynamicRenderer'
 import launcherModule from './modules/launcher'
-import instancesModule from './modules/instances'
-import instNamesList from './modules/instances'
 import updaterModule from './modules/updater'
 import macMenuModule from './modules/macMenu'
 
@@ -17,7 +16,7 @@ const isProduction = process.env.NODE_ENV !== 'development'
 const platform: 'darwin' | 'win32' | 'linux' = process.platform as any
 const architucture: '64' | '32' = os.arch() === 'x64' ? '64' : '32'
 const headerSize = 32
-const modules = [launcherModule, instancesModule, macMenuModule]
+const modules = [launcherModule, macMenuModule]
 
 // Initialize app window
 // =====================
@@ -57,6 +56,8 @@ function createWindow() {
 // App events
 // ==========
 app.whenReady().then(async () => {
+
+    // Load vue devtools
     if (!isProduction) {
         try {
             await session.defaultSession.loadExtension(path.join(__dirname, '../..', '__extensions', 'vue-devtools'))
@@ -74,6 +75,32 @@ app.whenReady().then(async () => {
     // Load renderer process
     dynamicRenderer(mainWindow)
 
+    // Get instances list
+    const directoryPath = path.join(__dirname, '../../.minecraft/launcher/profiles/')
+
+    fs.readdir(directoryPath, function (err, files) {
+        if (err) {
+            return console.log('Unable to scan directory: ' + err)
+        }
+
+        let jsonFiles = files.filter((file) => path.extname(file).toLowerCase() === '.json')
+
+        jsonFiles.forEach((file) => {
+            fs.readFile(path.join(directoryPath, file), 'utf8', function (err, data) {
+                if (err) {
+                    console.log('Error reading file:', err)
+                    return
+                }
+
+                let jsonObject = JSON.parse(data)
+                let instNamesList = jsonObject.name
+                
+                console.log(instNamesList)
+                mainWindow.webContents.send('listInstances', instNamesList)
+            })
+        })
+    })
+
     // Load launcher (GMLL)
     await init()
 
@@ -88,13 +115,6 @@ app.whenReady().then(async () => {
     })
 
     console.log('[!] Loading modules: Done.' + '\r\n' + '-'.repeat(30))
-
-    mainWindow.webContents.on('did-finish-load', () => {
-
-        
-    })
-
-    console.log(instNamesList)
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the

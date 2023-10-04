@@ -194,6 +194,8 @@
 
 <script setup>
 
+useElectron().getInstances()
+
 function launchInstance() {
 	useElectron().launchInstance()
 }
