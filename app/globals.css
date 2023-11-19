@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container-bg {
+    @apply bg-[linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,0.96),rgba(0,0,0,0.85),rgba(0,0,0,0.65),rgba(0,0,0,0.4)),url('/instances/3.png')];
+  }
+  .hover-active-effect {
+    @apply hover:scale-[.9] transition-all duration-150 active:scale-[.75];
+  }
+  .section-style {
+    @apply bg-bg-1 border border-stroke-1 backdrop-blur-main rounded-out;
+  }
+}
+
+::selection {
+  background: #0db7ff;
+}
+
+::-webkit-scrollbar {
+  border-radius: 100px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: rgb(250, 250, 250, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(250, 250, 250, 0.2);
+}
