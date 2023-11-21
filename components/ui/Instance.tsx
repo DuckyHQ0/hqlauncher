@@ -1,6 +1,12 @@
 import { HiPlay, HiPencil, HiCog6Tooth } from "react-icons/hi2";
 
-export default function Instance() {
+interface InstanceProps {
+    name: string;
+    imageUrl: string;
+    id: any;
+}
+
+export default function Instance({ id, imageUrl, name }: InstanceProps) {
     return (
         <div className="bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.65)),url('/instances/1.png')]
         bg-cover border border-stroke-1 bg-no-repeat bg-clip-padding text-white hover:scale-[.98] group duration-150 rounded-in w-[512px] h-[256px] flex flex-col place-content-between">
@@ -9,7 +15,7 @@ export default function Instance() {
                 <HiPencil className="w-[25px] h-[25px] hover-active-effect hover:text-selected cursor-pointer" />
                 <HiCog6Tooth className="w-[25px] h-[25px] hover-active-effect hover:text-selected cursor-pointer" />
             </div>
-            <h3 className="text-3 font-medium m-32">Instance!</h3>
+            <h3 className="text-3 font-medium m-32">{ name }</h3>
         </div>
     )
 }
