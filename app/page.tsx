@@ -24,7 +24,7 @@ export default function Home() {
                         <h3 className="text-3 font-medium">Main Instances</h3>
                     </div>
                     <div className="flex flex-wrap gap-32">
-                        <Instance />
+                        <Instance id={0} imageUrl="/instances/1.png" name="Instance!" />
                     </div>
                     <Rust />
                     <div className="h-screen"></div>
