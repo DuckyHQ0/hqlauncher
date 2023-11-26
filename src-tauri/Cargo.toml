@@ -21,6 +21,11 @@ tauri = { version = "1.5.2", features = [ "window-start-dragging", "window-unmax
 window-shadows = "0.2.2"
 daedalus = "0.1.27"
 mc_auth = "0.1.0"
+dotenv-vault = "0.1.1"
+minecraft-msa-auth = "0.3.0"
+tokio = "1.34.0"
+oauth2 = "4.4.2"
+reqwest = "0.11.22"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.

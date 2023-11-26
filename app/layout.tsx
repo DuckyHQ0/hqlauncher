@@ -1,14 +1,5 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Link from "next/link";
-import {
-    HiRectangleStack,
-    HiMiniUserGroup,
-    HiCog6Tooth,
-    HiMiniNewspaper,
-    HiMiniQuestionMarkCircle,
-} from "react-icons/hi2";
 import TitleBar from "@/components/TitleBar";
 import SideNav from "@/components/ui/SideNav";
 

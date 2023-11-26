@@ -17,7 +17,7 @@ export default function SideNav() {
         <div className="w-fit flex flex-col place-content-between align-middle place-items-center">
             <Link href={"/"}>
                 <Image
-                    src={"/logo.png"}
+                    src={"/brand/mark.svg"}
                     alt="HQLauncher Logo"
                     width={50}
                     height={50}
