@@ -12,6 +12,7 @@
   "dependencies": {
     "@fiahfy/icns-convert": "^0.0.12",
     "@tauri-apps/api": "^1.5.1",
+    "framer-motion": "^10.16.5",
     "jimp": "^0.22.10",
     "next": "14.0.3",
     "png-to-ico": "^2.1.8",

@@ -8,36 +8,27 @@ import {
 } from "react-icons/hi2";
 
 export default function TitleBar() {
-    function minimize() {
-        appWindow.minimize();
-    }
-    function maximize() {
-        appWindow.toggleMaximize();
-    }
-    function close() {
-        appWindow.close();
-    }
     return (
         <div
             data-tauri-drag-region
-            className="px-[100px] h-[90px] fixed w-screen align-middle place-items-center bg-transparent text-white flex place-content-between"
+            className="px-110 h-110 fixed w-screen align-middle place-items-center bg-transparent flex place-content-between"
         >
             <div className="flex gap-16 align-middle place-items-center">
                 <p className="text-body">HQLauncher</p>
-                <p className="text-sub text-white/50">0.1 Alpha</p>
+                <p className="text-sub text-text-1/50">0.1 Alpha</p>
             </div>
             <div className="flex gap-16 align-middle place-items-center">
                 <HiOutlineMinus
-                    className="w-[22px] h-[22px] cursor-pointer hover:text-yellow hover-active-effect"
-                    onClick={minimize}
+                    className="w-[22px] h-[22px] cursor-pointer hover:text-yellow duration-150 active:text-text-1"
+                    onClick={() => appWindow.minimize()}
                 />
                 <HiOutlineSquare2Stack
-                    className="w-[22px] h-[22px] cursor-pointer hover:text-green hover-active-effect"
-                    onClick={maximize}
+                    className="w-[22px] h-[22px] cursor-pointer hover:text-green duration-150 active:text-text-1"
+                    onClick={() => appWindow.toggleMaximize()}
                 />
                 <HiOutlineXMark
-                    className="w-[22px] h-[22px] cursor-pointer hover:text-red hover-active-effect"
-                    onClick={close}
+                    className="w-[22px] h-[22px] cursor-pointer hover:text-red duration-150 active:text-text-1"
+                    onClick={() => appWindow.close()}
                 />
             </div>
         </div>
