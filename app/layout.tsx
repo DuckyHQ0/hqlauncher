@@ -16,7 +16,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={outfit.className + "overflow-clip rounded-24 border border-white bg-no-repeat bg-clip-border bg-cover bg-[linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,0.96),rgba(0,0,0,0.85),rgba(0,0,0,0.65),rgba(0,0,0,0.4)),url('/theme/1.png')]"}>
+        <html lang="en" className={outfit.className + "overflow-clip rounded-24 bg-no-repeat bg-clip-border bg-cover bg-[linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,0.96),rgba(0,0,0,0.85),rgba(0,0,0,0.65),rgba(0,0,0,0.4)),url('/theme/1.png')]"}>
             <body className="overflow-hidden bg-cover w-screen h-screen text-text-1">
                 <TitleBar />
                 <div className="p-110 gap-96 h-full flex overflow-hidden">
