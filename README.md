@@ -49,4 +49,14 @@ Feel free to contribute to the development of this project. Any help is apprecia
 
 ## 🏛️ License
 
-All code, brand assets, and media in this repository is licensed under the [GNU General Public License v3.0](/LICENSE.txt).
+All code and media in this repository is licensed under the [GNU General Public License v3.0](/LICENSE.txt).
+
+## 🎨 Brand
+
+Brand assets are avalible [here](https://github.com/DuckyHQ0/HQLauncher/tree/main/public/brand).
+
+This project can be named by `HQLauncher` or `HQL`.
+
+Do not claim HQL to be yours.
+
+Do not alter the logo or use it for your own projects.
