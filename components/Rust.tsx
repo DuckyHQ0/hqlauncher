@@ -5,7 +5,7 @@ import {invoke} from "@tauri-apps/api/tauri";
 
 export default function Rust() {
     useEffect(() => {
-        invoke('auth')
+        invoke('temp_fn')
             .then(console.log)
             .catch(console.error)
     })
