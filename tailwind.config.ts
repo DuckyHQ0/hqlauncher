@@ -63,8 +63,8 @@ const config: Config = {
 				red: "#F5254A",
 				yellow: "#EACA22",
 				green: "#26D958",
-				blue: "#072DF6",
-				purple: "#A012F6",
+				blue: "#0784F6",
+				purple: "#BC4DFF",
 			},
 			backdropBlur: {
 				main: "32px",

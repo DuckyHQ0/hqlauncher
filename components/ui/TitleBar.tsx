@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import { appWindow } from "@tauri-apps/api/window";
 import {
     HiOutlineXMark,
     HiOutlineMinus,
     HiOutlineSquare2Stack,
 } from "react-icons/hi2";
+import { appWindow } from "@tauri-apps/api/window";
 
 export default function TitleBar() {
     return (
         <div
             data-tauri-drag-region
-            className="px-110 h-110 fixed w-screen align-middle place-items-center bg-transparent flex place-content-between"
+            className="px-110 h-110 fixed w-screen align-middle place-items-center bg-transparen overflow-clip flex place-content-between"
         >
             <div className="flex gap-16 align-middle place-items-center">
                 <p className="text-body">HQLauncher</p>

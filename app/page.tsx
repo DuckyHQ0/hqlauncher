@@ -2,7 +2,7 @@ import { HiMiniPlus, HiChevronDown } from "react-icons/hi2";
 import Rust from "@/components/Rust";
 import Instance from "@/components/ui/Instance";
 
-export default function Home() {
+export default function Instances() {
     return (
         <div className="flex flex-col w-full h-full min-h-full overflow-y-auto gap-36">
             <div className="section-style flex gap-32 h-fit px-64 py-8">

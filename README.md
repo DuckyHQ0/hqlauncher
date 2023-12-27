@@ -16,7 +16,7 @@ HQLauncher is a Minecraft launcher that aims to include many useful features suc
 - Instance management
 - Creation of vanilla, and modded instances
 - Download mod-packs & mods straight from the launcher
-- Easy to use and secure account manager, with easy skin managment
+- Easy to use and secure account manager, with easy skin management
 - Mod, shader-pack and resource-pack management inside instances
 - Mod downloading straight from the launcher inside instances
 - Automatic updating for the launcher, mod-packs, and mods

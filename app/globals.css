@@ -26,6 +26,7 @@ html, body {
 }
 
 ::selection {
+  color: black;
   background: #0db7ff;
 }
 
