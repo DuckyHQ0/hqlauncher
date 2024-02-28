@@ -9,10 +9,10 @@
 ![GitHub License](https://img.shields.io/github/license/DuckyHQ0/HQLauncher)
 ![GitHub repo size](https://img.shields.io/github/repo-size/DuckyHQ0/HQLauncher)
 
-
 ## 📗 About
 
 HQLauncher is a Minecraft launcher that aims to include many useful features such as:
+
 - Instance management
 - Creation of vanilla, and modded instances
 - Download mod-packs & mods straight from the launcher
@@ -29,6 +29,7 @@ HQLauncher is a Minecraft launcher that aims to include many useful features suc
 - Make sure you have all the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites), and [Node.js](https://nodejs.org/en) installed.
 - Download the source code from this repository.
 - In the project directory, run:
+
 ```bash
 npm install
 
@@ -43,13 +44,20 @@ Please report any bugs inside the issues tab under this repository, or inside my
 
 I am also open to suggestions for this project under the discussions tab, or inside my [Discord](https://discord.gg/MeQwqsCHUE).
 
-## ⬆️ Contributing 
+## ⬆️ Contributing
 
 Feel free to contribute to the development of this project. Any help is appreciated.
 
 ## 🏛️ License
 
 All code and media in this repository is licensed under the [GNU General Public License v3.0](/LICENSE.txt).
+
+## 🐛 Known Issues
+
+`DRM_IOCTL_NVIDIA_GEM_ALLOC_NVKMS_MEMORY failed` and blank window when running `npm tun tauri dev` on Linux systems
+
+- This could be an issue with Nvidia drivers and webkit2gtk
+- Fix by running `WEBKIT_DISABLE_DMABUF_RENDERER=1 npm run tauri dev` or `WEBKIT_DISABLE_COMPOSITING_MODE=1 npm run tauri dev` instead of the normal dev command
 
 ## 🎨 Brand
 
