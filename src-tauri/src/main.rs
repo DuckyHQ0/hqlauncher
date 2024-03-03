@@ -12,10 +12,12 @@ use launcher::utils::delete_inst;
 use launcher::launcher::launch_game;
 use launcher::downloader::download;
 use launcher::auth::authenticate;
+use launcher::auth::open_auth_window;
 
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![temp_fn])
+        .invoke_handler(tauri::generate_handler![open_auth_window])
         .run(tauri::generate_context!())
         .expect("Failed to run app.");
 }

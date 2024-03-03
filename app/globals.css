@@ -4,25 +4,20 @@
 
 @layer components {
   .hover-active-effect {
-    @apply hover:scale-[.9] transition-all duration-150 active:scale-[.75];
+    @apply hover:text-[#0db7ff] transition-all duration-150 active:text-[#0db7ff]/75;
   }
   .section-style {
     @apply bg-gradient-to-b from-[#0f0f0f]/75 to-[#0f0f0f]/90 border border-stroke-1 backdrop-blur-main rounded-out;
   }
   .fg-1 {
-    @apply bg-gradient-to-b from-[#0f0f0f]/75 to-[#0f0f0f]/90
+    @apply bg-gradient-to-b from-[#0f0f0f]/75 to-[#0f0f0f]/90;
   }
   .fg-2 {
-    @apply bg-white/[.03]
+    @apply bg-white/[.03];
   }
   .fg-3 {
-    @apply bg-gradient-to-b from-[#0c0c0c]/[.45] to-[#0c0c0c]/50
+    @apply bg-gradient-to-b from-[#0c0c0c]/[.45] to-[#0c0c0c]/50;
   }
-}
-
-html, body {
-  background-color: transparent;
-  border-radius: 24px;
 }
 
 ::selection {

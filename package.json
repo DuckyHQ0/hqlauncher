@@ -14,7 +14,7 @@
     "@tauri-apps/api": "^1.5.1",
     "framer-motion": "^10.16.5",
     "jimp": "^0.22.10",
-    "next": "14.0.3",
+    "next": "^14.1.0",
     "png-to-ico": "^2.1.8",
     "react": "^18",
     "react-dom": "^18",
