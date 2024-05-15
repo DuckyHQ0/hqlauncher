@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   HiRectangleStack,
@@ -14,8 +13,11 @@ export default function SideNav() {
   const isCurrentPage = (path: string) => router.pathname === path;
   return (
     <div className="w-fit flex flex-col place-content-between align-middle place-items-center">
-      <Link href={"/"}>
-        <Image
+      <Link
+        href={"/home"}
+        className="hover:scale-90 active:scale-80 duration-150 ease-out"
+      >
+        <img
           src={"/brand/mark.svg"}
           alt="HQLauncher Logo"
           width={50}
