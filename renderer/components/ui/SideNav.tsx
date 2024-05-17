@@ -15,7 +15,7 @@ export default function SideNav() {
     <div className="w-fit flex flex-col place-content-between align-middle place-items-center">
       <Link
         href={"/home"}
-        className="hover:scale-90 active:scale-80 duration-150 ease-out"
+        className="hover:scale-90 active:scale-[.80] duration-150 ease-out"
       >
         <img
           src={"/brand/mark.svg"}
@@ -55,7 +55,7 @@ export default function SideNav() {
             }`}
           />
         </Link>
-        <Link href={"/"}>
+        <Link href={"/home"}>
           <HiMiniQuestionMarkCircle className="w-[28px] h-[28px] hover-active-effect" />
         </Link>
       </div>
