@@ -25,6 +25,7 @@ It aims to include many useful features such as:
 
 ## 🏃‍♂️ How to Run (dev)
 
+- Install node.js
 - Download the source code (Git clone, GitHub desktop, or download zip)
 - Open the directory, and run:
 

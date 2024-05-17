@@ -3,5 +3,4 @@ node_modules
 .next
 app
 dist
-.env.secrets
 .minecraft

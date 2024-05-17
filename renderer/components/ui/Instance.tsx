@@ -20,13 +20,13 @@ export default function Instance({ id, imageUrl, name }: InstanceProps) {
     >
       <div className="fg-3 backdrop-blur-main h-fit w-full rounded-t-[7.55px] flex gap-48 px-32 py-16 opacity-0 group-hover:opacity-100 duration-150">
         <button>
-          <HiPlay className="w-[25px] h-[25px] hover-active-effect hover:text-selected" />
+          <HiPlay className="w-[25px] h-[25px] hover-active-effect" />
         </button>
         <button>
-          <HiPencil className="w-[25px] h-[25px] hover-active-effect hover:text-selected" />
+          <HiPencil className="w-[25px] h-[25px] hover-active-effect" />
         </button>
         <button>
-          <HiCog6Tooth className="w-[25px] h-[25px] hover-active-effect hover:text-selected" />
+          <HiCog6Tooth className="w-[25px] h-[25px] hover-active-effect" />
         </button>
       </div>
       <h3 className="text-3 font-medium m-32">{name}</h3>

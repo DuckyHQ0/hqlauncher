@@ -2,8 +2,9 @@ import path from "path";
 import { app, ipcMain } from "electron";
 import serve from "electron-serve";
 import { createWindow } from "./helpers";
-import { LaunchMinecraft } from "./launcher/authService";
 import gmll from "gmll";
+import { AuthenticateWindow } from "./launcher/auth";
+import { LaunchMinecraft } from "./launcher/launcher";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -40,9 +41,13 @@ if (isProd) {
   // LAUNCHER STUFF
   // --------------------
 
-  await gmll.init().then(async () => {
-    LaunchMinecraft();
-  });
+  try {
+    AuthenticateWindow().then(() => {
+      LaunchMinecraft();
+    });
+  } catch (error) {
+    console.error("Launcher init background.ts error:", error);
+  }
 })();
 
 app.on("window-all-closed", () => {
