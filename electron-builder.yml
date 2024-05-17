@@ -1,0 +1,11 @@
+appId: com.duckyhq.hql
+productName: HQLauncher
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+publish: null
