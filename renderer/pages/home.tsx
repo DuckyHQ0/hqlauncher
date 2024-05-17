@@ -34,9 +34,6 @@ export default function HomePage() {
                   Group 1 <HiChevronDown className="inline ml-12" />
                 </h3>
               </div>
-              <a href="/auth/success" className="">
-                asd
-              </a>
               <div className="grid grid-cols-3 max-[1600px]:grid-cols-2 gap-32">
                 <Instance id={0} imageUrl="/theme/4.png" name="Instance 1" />
                 <Instance id={0} imageUrl="/theme/5.png" name="Instance 2" />
