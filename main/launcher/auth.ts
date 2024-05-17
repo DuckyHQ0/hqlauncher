@@ -15,7 +15,7 @@ export async function AuthenticateWindow() {
     const token = await xboxManager.getMinecraft();
 
     const encryptedToken = safeStorage
-      .encryptString(token.gmll().access_token.toString())
+      .encryptString(token.gmll().toString())
       .toString("base64");
     store.set("minecraft-token", encryptedToken);
   } catch (error) {

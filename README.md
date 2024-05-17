@@ -51,7 +51,7 @@ All code and media in this repository is licensed under the [GNU General Public 
 
 ## 🎨 Brand
 
-Brand assets are available [here](https://github.com/DuckyHQ0/HQLauncher/tree/main/public/brand).
+Brand assets are available [here](https://github.com/DuckyHQ0/hqlauncher/tree/main/renderer/public/brand).
 
 This project can be named by `HQLauncher` or `HQL`.
 
