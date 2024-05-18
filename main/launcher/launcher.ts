@@ -1,16 +1,41 @@
-import { safeStorage } from "electron";
-import Store from "electron-store";
+import { getAccount } from "./auth";
 import Instance from "gmll/objects/instance";
+import { ipcMain } from "electron";
 
-const store = new Store();
+export async function createInstance({ name, version }) {
+  const instance = new Instance({ version: version, name: name });
+  instance.install();
+  instance.save();
+}
 
-export async function LaunchMinecraft() {
-  const encryptedToken = store.get("minecraft-token") as string;
-  const encryptedTokenBuffer = Buffer.from(encryptedToken, "base64");
+export async function launchInstance({ name }) {
+  const token = await getAccount();
 
-  const token = safeStorage.decryptString(encryptedTokenBuffer);
+  const instance = Instance.get(name);
 
-  const instance = new Instance({ version: "1.20.4", name: "hql-test" });
   // @ts-ignore
   instance.launch(token);
+}
+
+ipcMain.handle("request-instances", async () => {
+  const instancesMap = await getInstances();
+  const instancesObj = Array.from(instancesMap.entries()).reduce(
+    (obj, [key, val]) => {
+      obj[key] = val;
+      return obj;
+    },
+    {}
+  );
+
+  const serializableInstances = Object.values(instancesObj).map((instance) => ({
+    ...(instance as Record<string, unknown>),
+    get: undefined,
+  }));
+  return serializableInstances;
+});
+
+export async function getInstances() {
+  const instances = Instance.getProfiles();
+  console.log(instances);
+  return instances;
 }

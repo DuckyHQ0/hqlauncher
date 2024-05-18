@@ -1,20 +1,37 @@
-import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron'
+// preload.ts
 
-const handler = {
-  send(channel: string, value: unknown) {
-    ipcRenderer.send(channel, value)
-  },
-  on(channel: string, callback: (...args: unknown[]) => void) {
-    const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
-      callback(...args)
-    ipcRenderer.on(channel, subscription)
+import { contextBridge, ipcRenderer } from "electron";
 
-    return () => {
-      ipcRenderer.removeListener(channel, subscription)
-    }
-  },
+interface IpcExposed {
+  send: (channel: string, data?: any) => Promise<void>;
+  invoke: (channel: string, data?: any) => Promise<any>;
+  on: (channel: string, listener: (...args: any[]) => void) => () => void;
 }
 
-contextBridge.exposeInMainWorld('ipc', handler)
+const exposedIpc: IpcExposed = {
+  send: (channel, data) => {
+    return new Promise((resolve, reject) => {
+      ipcRenderer.send(channel, data);
+      ipcRenderer.once(`${channel}-reply`, (event, response) => {
+        if (response.success) {
+          resolve(response.data);
+        } else {
+          reject(response.error);
+        }
+      });
+    });
+  },
+  invoke: (channel, data) => {
+    return ipcRenderer.invoke(channel, data);
+  },
+  on: (channel, listener) => {
+    const subscription = (_, args) => listener(...args);
+    ipcRenderer.on(channel, subscription);
 
-export type IpcHandler = typeof handler
+    return () => {
+      ipcRenderer.removeListener(channel, subscription);
+    };
+  },
+};
+
+contextBridge.exposeInMainWorld("ipc", exposedIpc);

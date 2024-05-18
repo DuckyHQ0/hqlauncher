@@ -5,9 +5,10 @@ import { createWindow } from "./helpers";
 import { init } from "gmll";
 import { setLauncherName, setLauncherVersion } from "gmll/config";
 
-// Modules
+// Launcher Modules
 
 import("./launcher/auth");
+import("./launcher/launcher");
 
 // ------------
 
@@ -33,6 +34,7 @@ if (isProd) {
       preload: path.join(__dirname, "preload.js"),
     },
   });
+
   mainWindow.maximize();
 
   if (isProd) {

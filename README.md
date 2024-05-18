@@ -23,6 +23,8 @@ It aims to include many useful features such as:
 
 ![](/renderer/public/github/screenshot.png)
 
+Please report any bugs inside the issues tab under this repository, or inside my [Discord](https://discord.gg/MeQwqsCHUE). I'm also open to suggestions!
+
 ## 🏃‍♂️ How to Run (dev)
 
 - Install node.js
@@ -35,17 +37,36 @@ It aims to include many useful features such as:
   npm run dev
   ```
 
-## 📋 Keep in Mind
+## 📁 Project Info
 
-This project is unstable, and in a very early version. Most of the features aren't implemented yet.
+### Technologies
 
-Please report any bugs inside the issues tab under this repository, or inside my [Discord](https://discord.gg/MeQwqsCHUE). I'm also open to suggestions!
+Big thanks to the author and contributors of [MSMC](https://github.com/Hanro50/MSMC) and [GMLL](https://github.com/Hanro50/GMLL), for making authentication and launcher stuff so easy. <br />
+This project is built with Nextron (next.js and electron) <br />
+It uses [MorphUI](https://github.com/DuckyHQ0/morphui) (also a duckyhq project) for the design. MorphUI uses Radix Primitives for components, and this entire project uses Tailwind CSS.
 
-## ⬆️ Contributing
+### Directory Structure (simplified)
+
+The main process's files are inside the main directory, same with the renderer process. The main process is like the back-end of the app, for electron, system, and launcher stuff. The renderer is what you see, so it's the front-end. These are the only two folders you should be mainly working in. <br />
+When you init GMLL, a `.minecraft` folder will be created containing all the important launcher stuff.
+
+```
+├── .minecraft
+├── main/
+│   ├── launcher/
+│   │   ├── auth.ts - Authentication
+│   │   └── launcher.ts - Minecraft launching stuff
+│   ├── background.ts - Main Electron file
+│   └── preload.ts - IPC stuff
+└── renderer/
+    ├── components/ - MorphUI components, and specific HQL components (including layouts)
+    ├── pages/ - All the front-end pages
+    └── public/ - Assets
+```
+
+## ⬆️ Contributing & License
 
 Feel free to contribute to the development of this project. Any help is appreciated!
-
-## 🏛️ License
 
 All code and media in this repository is licensed under the [GNU General Public License v3.0](/LICENSE.txt).
 

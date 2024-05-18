@@ -6,10 +6,10 @@ import { ipcMain } from "electron";
 const store = new Store();
 
 ipcMain.on("add-microsoft-account", () => {
-  OpenAuthenticateWindow();
+  openAuthenticateWindow();
 });
 
-export async function OpenAuthenticateWindow() {
+export async function openAuthenticateWindow() {
   try {
     const authManager = new Auth({
       client_id: "542a1094-8e07-4018-b832-3fbb8f2b5270",
@@ -26,4 +26,12 @@ export async function OpenAuthenticateWindow() {
   } catch (error) {
     console.error("Authentication failed:", error);
   }
+}
+
+export async function getAccount() {
+  const encryptedToken = store.get("minecraft-token") as string;
+  const encryptedTokenBuffer = Buffer.from(encryptedToken, "base64");
+
+  const token = safeStorage.decryptString(encryptedTokenBuffer);
+  return token;
 }

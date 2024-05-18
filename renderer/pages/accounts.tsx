@@ -15,7 +15,7 @@ import AccountItem from "../components/ui/AccountItem";
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
 
 export default function AccountPage() {
-  function sendMessageToMain() {
+  function openAccountWindow() {
     window.ipc.send("add-microsoft-account", "add-microsoft-account");
   }
   return (
@@ -27,7 +27,7 @@ export default function AccountPage() {
         <div className="flex flex-col w-full h-full min-h-full overflow-y-auto gap-36">
           <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 flex gap-32 h-fit px-64 py-8">
             <button
-              onClick={sendMessageToMain}
+              onClick={openAccountWindow}
               className="flex gap-8 place-items-center hover-active-effect"
             >
               <HiMiniPlus className="w-[22px] h-[22px]" />
