@@ -18,6 +18,14 @@ export async function openAuthenticateWindow() {
     });
     const xboxManager = await authManager.launch("electron");
     const token = await xboxManager.getMinecraft();
+    const xName = (await (await xboxManager.getSocial()).getProfile()).gamerTag;
+    const mcName = (await xboxManager.getMinecraft()).profile.name;
+
+    console.log("xbox gamer tag: " + xName);
+    console.log("mc name: " + mcName);
+
+    store.set("xbox-gamer-tag", xName);
+    store.set("minecraft-name", mcName);
 
     const encryptedToken = safeStorage
       .encryptString(token.gmll().toString())
@@ -28,10 +36,21 @@ export async function openAuthenticateWindow() {
   }
 }
 
-export async function getAccount() {
+export function getAccountToken() {
   const encryptedToken = store.get("minecraft-token") as string;
   const encryptedTokenBuffer = Buffer.from(encryptedToken, "base64");
 
   const token = safeStorage.decryptString(encryptedTokenBuffer);
   return token;
 }
+
+export function getAccountDetails() {
+  const xName = store.get("xbox-gamer-tag");
+  const mcName = store.get("minecraft-name");
+
+  return { xName, mcName };
+}
+
+ipcMain.handle("request-accounts-details", async () => {
+  await getAccountDetails();
+});

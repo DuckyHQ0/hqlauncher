@@ -1,4 +1,4 @@
-import { getAccount } from "./auth";
+import { getAccountToken } from "./auth";
 import Instance from "gmll/objects/instance";
 import { ipcMain } from "electron";
 
@@ -9,7 +9,7 @@ export async function createInstance({ name, version }) {
 }
 
 export async function launchInstance({ name }) {
-  const token = await getAccount();
+  const token = await getAccountToken();
 
   const instance = Instance.get(name);
 
@@ -36,6 +36,5 @@ ipcMain.handle("request-instances", async () => {
 
 export async function getInstances() {
   const instances = Instance.getProfiles();
-  console.log(instances);
   return instances;
 }

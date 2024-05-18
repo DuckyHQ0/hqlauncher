@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
 import {
@@ -18,6 +18,17 @@ export default function AccountPage() {
   function openAccountWindow() {
     window.ipc.send("add-microsoft-account", "add-microsoft-account");
   }
+  const [accounts, setAccounts] = useState([]);
+  useEffect(() => {
+    window.ipc
+      .invoke("request-accounts-details")
+      .then((accounts) => {
+        setAccounts(accounts);
+      })
+      .catch((error) => {
+        console.error("IPC invocation failed:", error);
+      });
+  }, []);
   return (
     <React.Fragment>
       <Head>
