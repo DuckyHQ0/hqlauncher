@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "hqlauncher",
-  "description": "A modern Minecraft launcher",
+  "description": "A Minecraft launcher, with modern UI, and modern features.",
   "version": "0.1.0",
   "license": "GPL-3.0",
   "author": "Dukc <hello@dukc.dev>",

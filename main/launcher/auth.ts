@@ -1,10 +1,15 @@
 import { Auth } from "msmc";
 import { safeStorage } from "electron";
 import Store from "electron-store";
+import { ipcMain } from "electron";
 
 const store = new Store();
 
-export async function AuthenticateWindow() {
+ipcMain.on("add-microsoft-account", () => {
+  OpenAuthenticateWindow();
+});
+
+export async function OpenAuthenticateWindow() {
   try {
     const authManager = new Auth({
       client_id: "542a1094-8e07-4018-b832-3fbb8f2b5270",

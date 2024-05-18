@@ -3,9 +3,13 @@ import { app, ipcMain } from "electron";
 import serve from "electron-serve";
 import { createWindow } from "./helpers";
 import { init } from "gmll";
-import { AuthenticateWindow } from "./launcher/auth";
-import { LaunchMinecraft } from "./launcher/launcher";
 import { setLauncherName, setLauncherVersion } from "gmll/config";
+
+// Modules
+
+import("./launcher/auth");
+
+// ------------
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -45,10 +49,7 @@ if (isProd) {
   try {
     await init();
     setLauncherName("HQLauncher");
-    setLauncherVersion("alpha-0.0.2");
-    AuthenticateWindow().then(() => {
-      LaunchMinecraft();
-    });
+    setLauncherVersion("alpha-0.2.0");
   } catch (error) {
     console.error("Launcher background.ts error:", error);
   }
