@@ -4,6 +4,7 @@ import serve from "electron-serve";
 import { createWindow } from "./helpers";
 import { init } from "gmll";
 import { setLauncherName, setLauncherVersion } from "gmll/config";
+import { deleteAccount } from "./launcher/auth";
 
 // Launcher Modules
 
@@ -55,6 +56,8 @@ if (isProd) {
   } catch (error) {
     console.error("Launcher background.ts error:", error);
   }
+
+  deleteAccount("d1b3d468bb3443a49dad87a50947a8f7");
 })();
 
 app.on("window-all-closed", () => {

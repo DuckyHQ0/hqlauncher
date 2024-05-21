@@ -1,3 +1,6 @@
+// -------- HQLauncher -- dukc ----------- //
+// ---- Launcher & Instance Managment ---- //
+
 import { getAccountToken } from "./auth";
 import Instance from "gmll/objects/instance";
 import { ipcMain } from "electron";
@@ -8,8 +11,8 @@ export async function createInstance({ name, version }) {
   instance.save();
 }
 
-export async function launchInstance({ name }) {
-  const token = await getAccountToken();
+export function launchInstance({ name }) {
+  const token = getAccountToken();
 
   const instance = Instance.get(name);
 
@@ -17,6 +20,7 @@ export async function launchInstance({ name }) {
   instance.launch(token);
 }
 
+// For mapping the instances in front-end
 ipcMain.handle("request-instances", async () => {
   const instancesMap = await getInstances();
   const instancesObj = Array.from(instancesMap.entries()).reduce(

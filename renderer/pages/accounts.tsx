@@ -18,12 +18,15 @@ export default function AccountPage() {
   function openAccountWindow() {
     window.ipc.send("add-microsoft-account", "add-microsoft-account");
   }
+
   const [accounts, setAccounts] = useState([]);
+
   useEffect(() => {
     window.ipc
-      .invoke("request-accounts-details")
+      .invoke("request-accounts")
       .then((accounts) => {
-        setAccounts(accounts);
+        setAccounts(JSON.parse(accounts));
+        console.log("Accounts from front-end: " + accounts);
       })
       .catch((error) => {
         console.error("IPC invocation failed:", error);
@@ -75,13 +78,24 @@ export default function AccountPage() {
           </div>
           <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 w-full h-full flex flex-col gap-64 overflow-y-auto p-64 pl-24">
             <RadixRadioGroup.Root>
-              <AccountItem
-                face="https://starlightskins.lunareclipse.studio/render/pixel/dukkcc/face"
-                displayname="dukkcc"
-                username="DUKKCC"
-                uuid="d1b3d468-bb34-43a4-9dad-87a50947a8f7"
-                active={true}
-              />
+              {accounts.length > 0 ? (
+                accounts
+                  .filter(
+                    (account) => account !== null && account !== undefined
+                  )
+                  .map((account) => (
+                    <AccountItem
+                      key={account.uuid}
+                      face={`https://starlightskins.lunareclipse.studio/render/pixel/${account.mcName}/face`}
+                      displayname={account.mcName}
+                      username={account.xName}
+                      uuid={account.uuid}
+                      active={true}
+                    />
+                  ))
+              ) : (
+                <div></div>
+              )}
             </RadixRadioGroup.Root>
           </div>
         </div>
