@@ -57,7 +57,7 @@ if (isProd) {
     console.error("Launcher background.ts error:", error);
   }
 
-  deleteAccount("d1b3d468bb3443a49dad87a50947a8f7");
+  // deleteAccount("d1b3d468bb3443a49dad87a50947a8f7");
 })();
 
 app.on("window-all-closed", () => {

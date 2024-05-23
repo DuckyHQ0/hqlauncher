@@ -18,6 +18,10 @@ export default function AccountPage() {
   function openAccountWindow() {
     window.ipc.send("add-microsoft-account", "add-microsoft-account");
   }
+  function deleteAccount(args: string) {
+    window.ipc.send("delete-account", args);
+    console.log("Sending ipc renderer to delete account: " + args);
+  }
 
   const [accounts, setAccounts] = useState([]);
 
@@ -54,13 +58,15 @@ export default function AccountPage() {
               <HiCheck className="w-[22px] h-[22px]" />
               <p className="subtext">Set as Active Account</p>
             </a>
-            <a
-              href="#"
+            <button
+              onClick={() => {
+                deleteAccount("cb0bc3470e4044569b41875191ff025b");
+              }}
               className="flex gap-8 place-items-center hover-active-effect"
             >
               <HiTrash className="w-[22px] h-[22px]" />
               <p className="subtext">Delete Account</p>
-            </a>
+            </button>
             <a
               href="#"
               className="flex gap-8 place-items-center hover-active-effect"
@@ -76,8 +82,34 @@ export default function AccountPage() {
               <p className="subtext">View Models</p>
             </a>
           </div>
-          <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 w-full h-full flex flex-col gap-64 overflow-y-auto p-64 pl-24">
-            <RadixRadioGroup.Root>
+          <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 w-full h-full flex flex-col gap-8 overflow-y-auto p-64 pl-20">
+            <div className="flex p-6 justify-between items-center">
+              <div className="flex gap-20 items-center w-full">
+                <div className="w-24 opacity-0">a</div>
+                <div className="w-48">
+                  <p className="subtext text-text-subtle">Face</p>
+                </div>
+                <p className="subtext text-text-subtle" id="displayname">
+                  Display Name
+                </p>
+              </div>
+              <div className="w-full">
+                <p className="subtext text-text-subtle" id="username">
+                  Active Account?
+                </p>
+              </div>
+              <div className="w-full">
+                <p className="subtext text-text-subtle" id="username">
+                  Xbox Gamer Tag
+                </p>
+              </div>
+              <div className="w-full">
+                <p className="subtext text-text-subtle" id="uuid">
+                  UUID
+                </p>
+              </div>
+            </div>
+            <RadixRadioGroup.Root className="flex flex-col gap-16">
               {accounts.length > 0 ? (
                 accounts
                   .filter(
@@ -91,6 +123,7 @@ export default function AccountPage() {
                       username={account.xName}
                       uuid={account.uuid}
                       active={true}
+                      value={account.xName}
                     />
                   ))
               ) : (

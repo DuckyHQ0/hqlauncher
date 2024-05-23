@@ -1,7 +1,7 @@
 // -------- HQLauncher -- dukc ----------- //
 // -- Authentication & Account Handling -- //
 
-import { Auth } from "msmc";
+import { Auth, tokenUtils } from "msmc";
 import { safeStorage } from "electron";
 import Store from "electron-store";
 import { ipcMain } from "electron";
@@ -39,6 +39,7 @@ export async function addAccount() {
     const xName = (await (await xboxManager.getSocial()).getProfile()).gamerTag;
     const mcName = (await xboxManager.getMinecraft()).profile.name;
     const mcUUID = (await xboxManager.getMinecraft()).profile.id;
+    console.log("mcUUID before storage:" + mcUUID);
 
     // Storage - Account
 
@@ -51,8 +52,7 @@ export async function addAccount() {
 
     store.set(`account-${mcUUID}`, account);
     // Account list - index
-    let accountList = store.get("accountList", [] as string[]);
-    // @ts-ignore
+    let accountList = store.get("accountList", []) as string[];
     accountList.push(mcUUID);
     store.set("accountList", accountList);
     // -------
@@ -61,26 +61,45 @@ export async function addAccount() {
   }
 }
 
-export async function deleteAccount(mcUUID: string) {
+export async function deleteAccount(mcUUID: string): Promise<void> {
   try {
     store.delete(`account-${mcUUID}`);
+
+    // Retrieve the current list of account UUIDs
+    let accountList = store.get("accountList", []) as string[];
+
+    // Find the index of the UUID to delete
+    const index = accountList.indexOf(mcUUID);
+
+    // If the UUID is found in the list, remove it
+    if (index > -1) {
+      accountList.splice(index, 1);
+    }
+
+    // Save the updated list back to the store
+    store.set("accountList", accountList);
+
     console.log(`Account ${mcUUID} successfully deleted.`);
   } catch (error) {
     console.error("Failed to delete account:", error);
   }
 }
 
+ipcMain.on("delete-account", (event, args) => {
+  deleteAccount(args);
+});
+
 // Use this for getting all account details
 export function getAllAccounts(): Account[] {
-  const accountUuids = store.get("accountList", [] as string[]);
+  const accountUuids = store.get("accountList", []) as string[];
 
-  // @ts-ignore
-  const accounts = accountUuids.map((mcUUID: string) => {
-    const fullAccount = store.get(`account-${mcUUID}`) as Account;
+  const accounts = accountUuids.map((mcUUIDarray: string) => {
+    const fullAccount = store.get(`account-${mcUUIDarray}`) as Account;
     return {
       mcName: fullAccount.mcName,
       xName: fullAccount.xName,
       mcUUID: fullAccount.mcUUID,
+      token: null,
     };
   });
 
@@ -88,7 +107,7 @@ export function getAllAccounts(): Account[] {
 }
 
 ipcMain.handle("request-accounts", async () => {
-  const accounts = await getAllAccounts();
+  const accounts = getAllAccounts();
   return JSON.stringify(accounts);
 });
 
