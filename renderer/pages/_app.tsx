@@ -17,11 +17,11 @@ const jetBrainsMono = JetBrains_Mono({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main
+    <div
       className={`${outfit.variable} ${jetBrainsMono.variable} font-sans text-text-1`}
     >
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 }
 

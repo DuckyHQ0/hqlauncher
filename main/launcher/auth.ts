@@ -51,11 +51,10 @@ export async function addAccount() {
     };
 
     store.set(`account-${mcUUID}`, account);
-    // Account list - index
+    // Account list - uuid array index
     let accountList = store.get("accountList", []) as string[];
     accountList.push(mcUUID);
     store.set("accountList", accountList);
-    // -------
   } catch (error) {
     console.error("Failed to add account:", error);
   }
@@ -65,18 +64,12 @@ export async function deleteAccount(mcUUID: string): Promise<void> {
   try {
     store.delete(`account-${mcUUID}`);
 
-    // Retrieve the current list of account UUIDs
     let accountList = store.get("accountList", []) as string[];
-
-    // Find the index of the UUID to delete
     const index = accountList.indexOf(mcUUID);
-
-    // If the UUID is found in the list, remove it
     if (index > -1) {
       accountList.splice(index, 1);
     }
 
-    // Save the updated list back to the store
     store.set("accountList", accountList);
 
     console.log(`Account ${mcUUID} successfully deleted.`);
@@ -112,8 +105,17 @@ ipcMain.handle("request-accounts", async () => {
 });
 
 // ONLY USE FOR LAUNCHING MINECRAFT - Because that's the only use for the token
-export function getAccountToken() {
-  const encryptedToken = store.get("minecraft-token") as string;
+export function getAccountToken(mcUUID: string) {
+  const accountDetailsArray = store.get(`account-${mcUUID}`) as Account[];
+
+  const accountDetail = accountDetailsArray.find(
+    (account) => account.mcUUID === mcUUID
+  );
+
+  if (!accountDetail) {
+    throw new Error(`No account found for UUID: ${mcUUID}`);
+  }
+  const encryptedToken = accountDetail.token;
   const encryptedTokenBuffer = Buffer.from(encryptedToken, "base64");
 
   const token = safeStorage.decryptString(encryptedTokenBuffer);

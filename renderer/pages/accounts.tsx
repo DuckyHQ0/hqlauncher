@@ -13,8 +13,20 @@ import Layout from "../components/layouts/MainLayout";
 import AccountItem from "../components/ui/AccountItem";
 
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogTrigger,
+} from "../components/ui/AlertDialog";
+import { Button } from "../components/ui/Button";
 
 export default function AccountPage() {
+  const [selectedUuid, setSelectedUuid] = useState<string | null>(null);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+
+  // IPC
   function openAccountWindow() {
     window.ipc.send("add-microsoft-account", "add-microsoft-account");
   }
@@ -23,7 +35,11 @@ export default function AccountPage() {
     console.log("Sending ipc renderer to delete account: " + args);
   }
 
-  const [accounts, setAccounts] = useState([]);
+  // Get accounts IPC
+  const [accounts, setAccounts] = useState<
+    Array<{ mcName: string; xName: string; mcUUID: string; token: string }>
+  >([]);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     window.ipc
@@ -34,8 +50,10 @@ export default function AccountPage() {
       })
       .catch((error) => {
         console.error("IPC invocation failed:", error);
+        setIsError(true);
       });
   }, []);
+  // HTML
   return (
     <React.Fragment>
       <Head>
@@ -51,36 +69,58 @@ export default function AccountPage() {
               <HiMiniPlus className="w-[22px] h-[22px]" />
               <p className="subtext">Add Microsoft Account</p>
             </button>
-            <a
-              href="#"
-              className="flex gap-8 place-items-center hover-active-effect"
+            <div
+              className={`flex gap-32 ${
+                isSelected
+                  ? "text-text-1"
+                  : "text-text-disabled pointer-events-none"
+              }`}
             >
-              <HiCheck className="w-[22px] h-[22px]" />
-              <p className="subtext">Set as Active Account</p>
-            </a>
-            <button
-              onClick={() => {
-                deleteAccount("cb0bc3470e4044569b41875191ff025b");
-              }}
-              className="flex gap-8 place-items-center hover-active-effect"
-            >
-              <HiTrash className="w-[22px] h-[22px]" />
-              <p className="subtext">Delete Account</p>
-            </button>
-            <a
-              href="#"
-              className="flex gap-8 place-items-center hover-active-effect"
-            >
-              <HiArchiveBoxArrowDown className="w-[22px] h-[22px]" />
-              <p className="subtext">Set Skin</p>
-            </a>
-            <a
-              href="#"
-              className="flex gap-8 place-items-center hover-active-effect"
-            >
-              <HiEye className="w-[22px] h-[22px]" />
-              <p className="subtext">View Models</p>
-            </a>
+              <button className="flex gap-8 place-items-center hover-active-effect">
+                <HiCheck className="w-[22px] h-[22px]" />
+                <p className="subtext">Set as Active Account</p>
+              </button>
+              <AlertDialog>
+                <AlertDialogTrigger>
+                  <button className="flex gap-8 place-items-center hover-active-effect">
+                    <HiTrash className="w-[22px] h-[22px]" />
+                    <p className="subtext">Delete Account</p>
+                  </button>
+                </AlertDialogTrigger>
+                <AlertDialogContent
+                  title="Are You Sure?"
+                  description="This will delete your account from HQLauncher. You can always add it back later."
+                >
+                  <AlertDialogCancel>
+                    <Button colour="secondary">Cancel</Button>
+                  </AlertDialogCancel>
+                  <AlertDialogAction>
+                    <Button
+                      colour="danger"
+                      onClick={() => {
+                        console.log("deleted account (fake): " + selectedUuid);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </AlertDialogAction>
+                </AlertDialogContent>
+              </AlertDialog>
+              <button className="flex gap-8 place-items-center hover-active-effect">
+                <HiArchiveBoxArrowDown className="w-[22px] h-[22px]" />
+                <p className="subtext">Set Skin</p>
+              </button>
+              <button
+                onClick={() => {
+                  console.log("Selected UUID: " + selectedUuid);
+                  console.log("Is selected? " + isSelected);
+                }}
+                className="flex gap-8 place-items-center hover-active-effect"
+              >
+                <HiEye className="w-[22px] h-[22px]" />
+                <p className="subtext">debug</p>
+              </button>
+            </div>
           </div>
           <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 w-full h-full flex flex-col gap-8 overflow-y-auto p-64 pl-20">
             <div className="flex p-6 justify-between items-center">
@@ -109,7 +149,13 @@ export default function AccountPage() {
                 </p>
               </div>
             </div>
-            <RadixRadioGroup.Root className="flex flex-col gap-16">
+            <RadixRadioGroup.Root
+              className="flex flex-col gap-16"
+              onValueChange={(newValue) => {
+                setSelectedUuid(newValue);
+                setIsSelected(true);
+              }}
+            >
               {accounts.length > 0 ? (
                 accounts
                   .filter(
@@ -117,17 +163,24 @@ export default function AccountPage() {
                   )
                   .map((account) => (
                     <AccountItem
-                      key={account.uuid}
+                      key={account.mcUUID}
                       face={`https://starlightskins.lunareclipse.studio/render/pixel/${account.mcName}/face`}
                       displayname={account.mcName}
                       username={account.xName}
-                      uuid={account.uuid}
+                      uuid={account.mcUUID}
                       active={true}
-                      value={account.xName}
+                      value={account.mcUUID}
                     />
                   ))
+              ) : isError ? (
+                <div className="body pl-48">
+                  Error getting accounts from store. (Error code 89)
+                </div>
               ) : (
-                <div></div>
+                <div className="body pl-48">
+                  No accounts found. Add your Microsoft account by clicking the
+                  button above.
+                </div>
               )}
             </RadixRadioGroup.Root>
           </div>

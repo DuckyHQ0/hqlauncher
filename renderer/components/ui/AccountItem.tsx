@@ -1,5 +1,15 @@
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
+import { RadioGroupProps } from "@radix-ui/react-radio-group";
 import { HiMiniCheck } from "react-icons/hi2";
+
+type AccountItemProps = {
+  face: string;
+  displayname: string;
+  username: string;
+  uuid: string;
+  active: boolean;
+  value: string;
+} & RadioGroupProps;
 
 export default function AccountItem({
   face,
@@ -8,14 +18,7 @@ export default function AccountItem({
   uuid,
   active,
   value,
-}: {
-  face: string;
-  displayname: string;
-  username: string;
-  uuid: string;
-  active: boolean;
-  value: string;
-}) {
+}: AccountItemProps) {
   return (
     <div className="flex p-6 justify-between items-center group">
       <div className="flex gap-20 items-center w-full">
