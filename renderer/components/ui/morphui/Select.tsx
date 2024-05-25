@@ -1,6 +1,13 @@
 import React, { ReactNode } from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
+import { Outfit } from "next/font/google";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const Select = ({
   label,
@@ -40,7 +47,7 @@ export const Select = ({
       required={required}
     >
       <RadixSelect.Trigger
-        className="inline-flex items-center justify-center text-body rounded-in w-fit h-fit px-24 py-12 gap-32 bg-fg-2 border border-stroke-2 text-text-1 shadow-fg-2 outline-none"
+        className="inline-flex items-center justify-between text-body rounded-in h-fit px-24 py-12 gap-32 bg-fg-2 border border-stroke-2 text-text-1 shadow-fg-2 outline-none"
         aria-label={label}
       >
         <RadixSelect.Value placeholder={label} />
@@ -51,7 +58,7 @@ export const Select = ({
       <RadixSelect.Portal>
         <RadixSelect.Content
           position="popper"
-          className="font-sans overflow-hidden relative z-50 bg-fg-2 mt-8 max-h-[436px] w-full rounded-in backdrop-blur-fg-2 border border-stroke-2 shadow-fg-2 text-text-1 rounded-md radix-state-open:animate-scale-in radix-state-closed:animate-scale-out"
+          className={`${outfit.className} overflow-hidden relative z-50 bg-fg-2 mt-8 max-h-[436px] w-full rounded-in backdrop-blur-fg-2 border border-stroke-2 shadow-fg-2 text-text-1 rounded-md radix-state-open:animate-scale-in radix-state-closed:animate-scale-out`}
         >
           <RadixSelect.ScrollUpButton className="flex items-center justify-center h-fit py-6 bg-fg-2 cursor-default border-b border-stroke-2">
             <HiChevronUp />

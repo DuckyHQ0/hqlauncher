@@ -3,6 +3,7 @@ import Layout from "../../components/layouts/MainLayout";
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { HiWrench } from "react-icons/hi2";
 import Image from "next/image";
+import { Input } from "../../components/ui/morphui/Input";
 
 export default function CreateInstance() {
   return (
@@ -10,7 +11,12 @@ export default function CreateInstance() {
       <Layout>
         <div className="flex gap-24 w-full h-full">
           <div className="rounded-out bg-fg-1 border w-fit h-full border-stroke-1 backdrop-blur-fg-1 flex flex-col p-48 justify-between">
-            a
+            <div className="flex flex-col gap-32">
+              <div className="flex flex-col gap-16">
+                <p className="subtext text-text-subtle">Instance Name</p>
+                <Input placeholder="Instance 1" type="text" />
+              </div>
+            </div>
           </div>
           <RadixTabs.Root
             defaultValue="custom"

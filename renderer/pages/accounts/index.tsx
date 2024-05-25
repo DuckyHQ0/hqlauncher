@@ -13,8 +13,8 @@ import {
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogTrigger,
-} from "../../components/ui/AlertDialog";
-import { Button } from "../../components/ui/Button";
+} from "../../components/ui/morphui/AlertDialog";
+import { Button } from "../../components/ui/morphui/Button";
 
 export default function Accounts() {
   const [selectedUuid, setSelectedUuid] = useState<string | null>(null);
