@@ -20,7 +20,7 @@ export default function AccountItem({
   value,
 }: AccountItemProps) {
   return (
-    <div className="flex p-6 justify-between items-center group">
+    <div className="grid grid-cols-4 max-[1600px]:grid-cols-3 overflow-clip p-6 justify-between items-center group">
       <div className="flex gap-20 items-center w-full">
         <RadixRadioGroup.Item
           className="w-24 h-24 bg-transparent group-hover:bg-fg-2 radix-disabled:bg-fg-2-disabled radix-disabled:cursor-not-allowed border border-stroke-2 rounded-small flex justify-center items-center duration-150 ease-out"
@@ -35,21 +35,15 @@ export default function AccountItem({
           {displayname}
         </p>
       </div>
-      <div className="w-full">
-        <p className="body" id="username">
-          {active ? "Active" : "Not active"}
-        </p>
-      </div>
-      <div className="w-full">
-        <p className="body" id="username">
-          {username}
-        </p>
-      </div>
-      <div className="w-full">
-        <p className="body" id="uuid">
-          {uuid}
-        </p>
-      </div>
+      <p className="body" id="username">
+        {active ? "Active" : "Not active"}
+      </p>
+      <p className="body" id="username">
+        {username}
+      </p>
+      <p className="body max-[1600px]:hidden" id="uuid">
+        {uuid}
+      </p>
     </div>
   );
 }

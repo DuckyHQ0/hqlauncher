@@ -15,7 +15,7 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400"],
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function HQLauncher({ Component, pageProps }: AppProps) {
   return (
     <div
       className={`${outfit.variable} ${jetBrainsMono.variable} font-sans text-text-1`}
@@ -25,4 +25,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default HQLauncher;

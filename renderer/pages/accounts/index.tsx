@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import {
-  HiMiniPlus,
-  HiTrash,
-  HiArchiveBoxArrowDown,
-  HiEye,
-  HiCheck,
-} from "react-icons/hi2";
+import { HiMiniPlus, HiTrash, HiUser, HiCheck } from "react-icons/hi2";
 
-import Layout from "../components/layouts/MainLayout";
-import AccountItem from "../components/ui/AccountItem";
+import Layout from "../../components/layouts/MainLayout";
+import AccountItem from "../../components/ui/AccountItem";
 
 import * as RadixRadioGroup from "@radix-ui/react-radio-group";
 import {
@@ -19,10 +13,10 @@ import {
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogTrigger,
-} from "../components/ui/AlertDialog";
-import { Button } from "../components/ui/Button";
+} from "../../components/ui/AlertDialog";
+import { Button } from "../../components/ui/Button";
 
-export default function AccountPage() {
+export default function Accounts() {
   const [selectedUuid, setSelectedUuid] = useState<string | null>(null);
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
@@ -32,7 +26,6 @@ export default function AccountPage() {
   }
   function deleteAccount(args: string) {
     window.ipc.send("delete-account", args);
-    console.log("Sending ipc renderer to delete account: " + args);
   }
 
   // Get accounts IPC
@@ -46,14 +39,13 @@ export default function AccountPage() {
       .invoke("request-accounts")
       .then((accounts) => {
         setAccounts(JSON.parse(accounts));
-        console.log("Accounts from front-end: " + accounts);
       })
       .catch((error) => {
         console.error("IPC invocation failed:", error);
         setIsError(true);
       });
   }, []);
-  // HTML
+
   return (
     <React.Fragment>
       <Head>
@@ -80,6 +72,10 @@ export default function AccountPage() {
                 <HiCheck className="w-[22px] h-[22px]" />
                 <p className="subtext">Set as Active Account</p>
               </button>
+              <button className="flex gap-8 place-items-center hover-active-effect">
+                <HiUser className="w-[22px] h-[22px]" />
+                <p className="subtext">Edit Skin</p>
+              </button>
               <AlertDialog>
                 <AlertDialogTrigger>
                   <button className="flex gap-8 place-items-center hover-active-effect">
@@ -98,7 +94,7 @@ export default function AccountPage() {
                     <Button
                       colour="danger"
                       onClick={() => {
-                        console.log("deleted account (fake): " + selectedUuid);
+                        deleteAccount(selectedUuid);
                       }}
                     >
                       Delete
@@ -106,26 +102,12 @@ export default function AccountPage() {
                   </AlertDialogAction>
                 </AlertDialogContent>
               </AlertDialog>
-              <button className="flex gap-8 place-items-center hover-active-effect">
-                <HiArchiveBoxArrowDown className="w-[22px] h-[22px]" />
-                <p className="subtext">Set Skin</p>
-              </button>
-              <button
-                onClick={() => {
-                  console.log("Selected UUID: " + selectedUuid);
-                  console.log("Is selected? " + isSelected);
-                }}
-                className="flex gap-8 place-items-center hover-active-effect"
-              >
-                <HiEye className="w-[22px] h-[22px]" />
-                <p className="subtext">debug</p>
-              </button>
             </div>
           </div>
           <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 w-full h-full flex flex-col gap-8 overflow-y-auto p-64 pl-20">
-            <div className="flex p-6 justify-between items-center">
+            <div className="grid grid-cols-4 max-[1600px]:grid-cols-3 overflow-clip p-6 justify-between items-center">
               <div className="flex gap-20 items-center w-full">
-                <div className="w-24 opacity-0">a</div>
+                <div className="w-24 opacity-0"></div>
                 <div className="w-48">
                   <p className="subtext text-text-subtle">Face</p>
                 </div>
@@ -133,21 +115,18 @@ export default function AccountPage() {
                   Display Name
                 </p>
               </div>
-              <div className="w-full">
-                <p className="subtext text-text-subtle" id="username">
-                  Active Account?
-                </p>
-              </div>
-              <div className="w-full">
-                <p className="subtext text-text-subtle" id="username">
-                  Xbox Gamer Tag
-                </p>
-              </div>
-              <div className="w-full">
-                <p className="subtext text-text-subtle" id="uuid">
-                  UUID
-                </p>
-              </div>
+              <p className="subtext text-text-subtle" id="username">
+                Active Account?
+              </p>
+              <p className="subtext text-text-subtle" id="username">
+                Xbox Gamer Tag
+              </p>
+              <p
+                className="subtext text-text-subtle max-[1600px]:hidden"
+                id="uuid"
+              >
+                UUID
+              </p>
             </div>
             <RadixRadioGroup.Root
               className="flex flex-col gap-16"
@@ -164,7 +143,7 @@ export default function AccountPage() {
                   .map((account) => (
                     <AccountItem
                       key={account.mcUUID}
-                      face={`https://starlightskins.lunareclipse.studio/render/pixel/${account.mcName}/face`}
+                      face={`https://starlightskins.lunareclipse.studio/render/pixel/${account.mcUUID}/face`}
                       displayname={account.mcName}
                       username={account.xName}
                       uuid={account.mcUUID}

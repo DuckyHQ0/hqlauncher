@@ -1,23 +1,20 @@
 // -------- HQLauncher -- dukc ----------- //
 // -- Authentication & Account Handling -- //
 
-import { Auth, tokenUtils } from "msmc";
+import { Auth } from "msmc";
 import { safeStorage } from "electron";
 import Store from "electron-store";
 import { ipcMain } from "electron";
 
 const store = new Store();
-
-ipcMain.on("add-microsoft-account", () => {
-  addAccount();
-});
-
 interface Account {
   mcName: string;
   mcUUID: string;
   xName: string;
   token: string;
 }
+
+// -------- Add Account --------- //
 
 export async function addAccount() {
   try {
@@ -39,7 +36,6 @@ export async function addAccount() {
     const xName = (await (await xboxManager.getSocial()).getProfile()).gamerTag;
     const mcName = (await xboxManager.getMinecraft()).profile.name;
     const mcUUID = (await xboxManager.getMinecraft()).profile.id;
-    console.log("mcUUID before storage:" + mcUUID);
 
     // Storage - Account
 
@@ -59,6 +55,12 @@ export async function addAccount() {
     console.error("Failed to add account:", error);
   }
 }
+
+ipcMain.on("add-microsoft-account", () => {
+  addAccount();
+});
+
+// -------- Delete Account --------- //
 
 export async function deleteAccount(mcUUID: string): Promise<void> {
   try {
@@ -82,7 +84,8 @@ ipcMain.on("delete-account", (event, args) => {
   deleteAccount(args);
 });
 
-// Use this for getting all account details
+// -------- Get Accounts for frontend --------- //
+
 export function getAllAccounts(): Account[] {
   const accountUuids = store.get("accountList", []) as string[];
 
@@ -104,7 +107,8 @@ ipcMain.handle("request-accounts", async () => {
   return JSON.stringify(accounts);
 });
 
-// ONLY USE FOR LAUNCHING MINECRAFT - Because that's the only use for the token
+// -------- Get Account Token (ONLY FOR LAUNCHING MC) --------- //
+
 export function getAccountToken(mcUUID: string) {
   const accountDetailsArray = store.get(`account-${mcUUID}`) as Account[];
 

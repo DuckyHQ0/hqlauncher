@@ -14,7 +14,7 @@ export default function SideNav() {
   return (
     <div className="w-fit flex flex-col place-content-between align-middle place-items-center">
       <Link
-        href={"/home"}
+        href={"/"}
         className="hover:scale-90 active:scale-[.80] duration-150 ease-out"
       >
         <img
@@ -27,10 +27,10 @@ export default function SideNav() {
       </Link>
 
       <div className="flex flex-col gap-32">
-        <Link href={"/home"}>
+        <Link href={"/"}>
           <HiRectangleStack
             className={`w-[28px] h-[28px] hover-active-effect ${
-              isCurrentPage("/home") ? "text-selected" : ""
+              isCurrentPage("/") ? "text-selected" : ""
             }`}
           />
         </Link>
