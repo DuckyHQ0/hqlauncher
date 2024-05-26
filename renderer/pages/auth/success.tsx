@@ -10,7 +10,7 @@ export default function HomePage() {
       <div className="bg-black text-text-1 flex flex-col p-32 gap-12 justify-center items-center h-screen w-screen">
         <h1 className="h1 font-bold">Success!</h1>
         <p className="body">Your account was verified succesfully.</p>
-        <a href="/home" className="underline">
+        <a href="/" className="underline">
           Back
         </a>
       </div>

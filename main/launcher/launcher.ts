@@ -1,6 +1,8 @@
 // -------- HQLauncher -- dukc ----------- //
 // ---- Launcher & Instance Managment ---- //
 
+// -------- Create Instance --------- //
+
 import { getAccountToken } from "./auth";
 import Instance from "gmll/objects/instance";
 import { ipcMain } from "electron";
@@ -16,6 +18,12 @@ export async function createInstance({
   instance.install();
   instance.save();
 }
+
+ipcMain.on("createInstance", (instanceName, instanceVersion) => {
+  createInstance({ name: instanceName.toString(), version: instanceVersion });
+});
+
+// -------- Launch Instance --------- //
 
 export function launchInstance({
   mcUUID,

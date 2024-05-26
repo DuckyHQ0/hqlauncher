@@ -37,10 +37,10 @@ export default function Accounts() {
   useEffect(() => {
     window.ipc
       .invoke("request-accounts")
-      .then((accounts) => {
+      .then((accounts: string) => {
         setAccounts(JSON.parse(accounts));
       })
-      .catch((error) => {
+      .catch((error: string) => {
         console.error("IPC invocation failed:", error);
         setIsError(true);
       });
@@ -52,7 +52,7 @@ export default function Accounts() {
         <title>HQLauncher</title>
       </Head>
       <Layout>
-        <div className="flex flex-col w-full h-full min-h-full overflow-y-auto gap-36">
+        <div className="flex flex-col w-full h-full min-h-full overflow-y-auto gap-24">
           <div className="bg-fg-1 border border-stroke-1 rounded-out backdrop-blur-fg-1 flex gap-32 h-fit px-64 py-8">
             <button
               onClick={openAccountWindow}
@@ -78,10 +78,10 @@ export default function Accounts() {
               </button>
               <AlertDialog>
                 <AlertDialogTrigger>
-                  <button className="flex gap-8 place-items-center hover-active-effect">
+                  <div className="flex gap-8 place-items-center hover-active-effect cursor-pointer">
                     <HiTrash className="w-[22px] h-[22px]" />
                     <p className="subtext">Delete Account</p>
-                  </button>
+                  </div>
                 </AlertDialogTrigger>
                 <AlertDialogContent
                   title="Are You Sure?"

@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.titlebar {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
-
 /* Tailwind classes */
 
 .hover-active-effect {

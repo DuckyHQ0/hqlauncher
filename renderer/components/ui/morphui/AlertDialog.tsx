@@ -16,8 +16,16 @@ export const AlertDialog = ({ children }: MorphUIAlertDialogProps) => (
   <RadixAlertDialog.Root>{children}</RadixAlertDialog.Root>
 );
 
-export const AlertDialogTrigger = ({ children }: { children: ReactNode }) => (
-  <RadixAlertDialog.Trigger asChild>{children}</RadixAlertDialog.Trigger>
+export const AlertDialogTrigger = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => (
+  <RadixAlertDialog.Trigger className={className} asChild>
+    {children}
+  </RadixAlertDialog.Trigger>
 );
 export const AlertDialogCancel = ({ children }: { children: ReactNode }) => (
   <RadixAlertDialog.Cancel asChild>{children}</RadixAlertDialog.Cancel>

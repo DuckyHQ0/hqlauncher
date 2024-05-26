@@ -3,7 +3,7 @@ import { app, ipcMain } from "electron";
 import serve from "electron-serve";
 import { createWindow } from "./helpers";
 import { init } from "gmll";
-import { setLauncherName, setLauncherVersion } from "gmll/config";
+import { setLauncherName, setLauncherVersion, setRoot } from "gmll/config";
 import { session } from "electron";
 import { getAccountToken } from "./launcher/auth";
 
@@ -70,9 +70,10 @@ if (isProd) {
   // --------------------
 
   try {
-    await init();
+    setRoot(".hqlauncher");
     setLauncherName("HQLauncher");
     setLauncherVersion("alpha-0.2.0");
+    await init();
   } catch (error) {
     console.error("Launcher background.ts error:", error);
   }

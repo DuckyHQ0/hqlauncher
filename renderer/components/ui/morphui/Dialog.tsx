@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactInstance, ReactNode } from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Outfit } from "next/font/google";
@@ -16,11 +16,17 @@ export const Dialog = ({ children }: MorphUIDialogProps) => (
   <RadixDialog.Root>{children}</RadixDialog.Root>
 );
 
-export const DialogTrigger = ({ children }: { children: ReactNode }) => (
-  <RadixDialog.Trigger>{children}</RadixDialog.Trigger>
+export const DialogTrigger = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => (
+  <RadixDialog.Trigger className={className}>{children}</RadixDialog.Trigger>
 );
 export const DialogClose = ({ children }: { children: ReactNode }) => (
-  <RadixDialog.Close>{children}</RadixDialog.Close>
+  <RadixDialog.Close asChild>{children}</RadixDialog.Close>
 );
 export const DialogTitle = ({ children }: { children: ReactNode }) => (
   <RadixDialog.Title>{children}</RadixDialog.Title>
